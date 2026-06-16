@@ -1,0 +1,893 @@
+{
+  "sources": [
+    {
+      "url": "https://x.com/topa1120",
+      "fetched_at_unix": 1781529194,
+      "response": {
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "title": "多帕🐾薩摩耶Vtuber (@topa1120) / X",
+      "meta": {
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover",
+        "color-scheme": "light dark",
+        "theme-color": "#000000",
+        "fb:app_id": "2231777543",
+        "og:site_name": "X (formerly Twitter)",
+        "google-site-verification": "reUF-TgZq93ZGtzImw42sfYglI2hY0QiGRmfc4jeKbs",
+        "facebook-domain-verification": "x6sdcc8b5ju3bh8nbm59eswogvg6t1",
+        "al:ios:app_store_id": "333903271",
+        "al:ios:app_name": "X",
+        "al:android:package": "com.twitter.android",
+        "al:android:app_name": "X",
+        "apple-itunes-app": "app-id=333903271",
+        "apple-mobile-web-app-title": "X (formerly Twitter)",
+        "apple-mobile-web-app-capable": "yes",
+        "apple-mobile-web-app-status-bar-style": "default",
+        "mobile-web-app-capable": "yes",
+        "app-version": "2a970bfdef4d2b626f64790a0dff7071b7cd5816",
+        "twitter-site-verification": "4cKDPH+Ye5HGeVVhcj8diZCl83yDs/cC0NmVkpsdw2yVWqQDeH3aMIdbvitExnsM",
+        "sentry-trace": "f15a45058d56083072ce341d872c5cf1-4b722a2f7477f4a8-0",
+        "baggage": "sentry-environment=production,sentry-release=2a970bfdef4d2b626f64790a0dff7071b7cd5816,sentry-public_key=b523016f172e2f101d4f771b022ba96c,sentry-trace_id=f15a45058d56083072ce341d872c5cf1,sentry-org_id=30969,sentry-sampled=false,sentry-sample_rand=0.6315812265044981,sentry-sample_rate=0.01",
+        "og:type": "profile",
+        "og:url": "https://x.com/topa1120",
+        "og:title": "多帕🐾薩摩耶Vtuber (@topa1120) on X",
+        "title": "多帕🐾薩摩耶Vtuber (@topa1120) on X",
+        "al:ios:url": "twitter://user?screen_name=topa1120",
+        "al:android:url": "twitter://user?screen_name=topa1120",
+        "description": "薩摩耶Vtuber(っ´ω`c) /LOGO設計：白樺木老師/繪師様：Rocks老師（@RocksnotRock）/賴福2D建模師：毛大福老師（@DaifukuMaow）/Fanart：#小笨狗看這裡/R-18 tag：#小笨狗不能看/聯絡信箱：samoyed.topa1120@gmail.com",
+        "og:description": "薩摩耶Vtuber(っ´ω`c) /LOGO設計：白樺木老師/繪師様：Rocks老師（@RocksnotRock）/賴福2D建模師：毛大福老師（@DaifukuMaow）/Fanart：#小笨狗看這裡/R-18 tag：#小笨狗不能看/聯絡信箱：samoyed.topa1120@gmail.com",
+        "og:image": "https://pbs.twimg.com/profile_images/1980993166355419136/mbM86dI-_200x200.jpg"
+      },
+      "headings": [
+        {
+          "level": "h2",
+          "text": "New to X?"
+        }
+      ],
+      "json_ld": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "url": "https://x.com/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "query-input": "required name=search_term_string",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://x.com/search?q={search_term_string}&ref_src=twcamp%5Eseo_searchbox%7Ctwsrc%5Eseo"
+            }
+          }
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "ProfilePage",
+          "dateCreated": "2023-05-07T14:12:31.879Z",
+          "mainEntity": {
+            "@type": "Person",
+            "additionalName": "topa1120",
+            "description": "薩摩耶Vtuber(っ´ω`c) /LOGO設計：白樺木老師/繪師様：Rocks老師（@RocksnotRock）/賴福2D建模師：毛大福老師（@DaifukuMaow）/Fanart：#小笨狗看這裡/R-18 tag：#小笨狗不能看/聯絡信箱：samoyed.topa1120@gmail.com",
+            "homeLocation": {
+              "@type": "Place",
+              "name": ""
+            },
+            "identifier": "1655213892187070467",
+            "image": {
+              "@type": "ImageObject",
+              "contentUrl": "https://pbs.twimg.com/profile_images/1980993166355419136/mbM86dI-_400x400.jpg",
+              "thumbnailUrl": "https://pbs.twimg.com/profile_images/1980993166355419136/mbM86dI-_normal.jpg"
+            },
+            "interactionStatistic": [
+              {
+                "@type": "InteractionCounter",
+                "interactionType": "https://schema.org/FollowAction",
+                "name": "Follows",
+                "userInteractionCount": 689
+              },
+              {
+                "@type": "InteractionCounter",
+                "interactionType": "https://schema.org/SubscribeAction",
+                "name": "Friends",
+                "userInteractionCount": 209
+              },
+              {
+                "@type": "InteractionCounter",
+                "interactionType": "https://schema.org/WriteAction",
+                "name": "Tweets",
+                "userInteractionCount": 2743
+              }
+            ],
+            "name": "多帕🐾薩摩耶Vtuber",
+            "url": "https://x.com/topa1120"
+          },
+          "contentRating": "",
+          "relatedLink": [
+            "https://t.co/N5dPMexEEz",
+            "https://youtube.com/@Topa1120.channel?si=GK8dmiTrss3q1mct"
+          ]
+        }
+      ],
+      "social_or_media_links": [
+        {
+          "href": "https://x.com/",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/header_photo",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/photo",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/RocksnotRock",
+          "text": "@ RocksnotRock"
+        },
+        {
+          "href": "https://x.com/DaifukuMaow",
+          "text": "@ DaifukuMaow"
+        },
+        {
+          "href": "https://x.com/hashtag/小笨狗看這裡",
+          "text": "#小笨狗看這裡"
+        },
+        {
+          "href": "https://x.com/hashtag/小笨狗不能看",
+          "text": "#小笨狗不能看"
+        },
+        {
+          "href": "https://x.com/cdn-cgi/l/email-protection",
+          "text": "[email protected]"
+        },
+        {
+          "href": "https://x.com/topa1120/following",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/verified_followers",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1924783480908775591",
+          "text": "May 20, 2025"
+        },
+        {
+          "href": "https://x.com/hashtag/Topaformance",
+          "text": "#Topaformance"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1924783480908775591/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780450226685477130",
+          "text": "Apr 17, 2024"
+        },
+        {
+          "href": "https://youtu.be/uIgVS2nZvHQ?si=BmvYOV-qa84Q5K-E",
+          "text": "youtu.be/uIgVS2nZvHQ?si…"
+        },
+        {
+          "href": "https://youtu.be/fLd855-q8lY?si=gnF85nvPDpfE-8mB",
+          "text": "youtu.be/fLd855-q8lY?si…"
+        },
+        {
+          "href": "https://x.com/hashtag/Totopa",
+          "text": "#Totopa"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780450226685477130/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1788203607265083847",
+          "text": "May 8, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/5月のVTuberフォロー祭り",
+          "text": "#5月のVTuberフォロー祭り"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1788203607265083847/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1793686533763211607",
+          "text": "May 23, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1793686533763211607/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/dEi_pft/status/1793127750687166633/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/dEi_pft",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/dEi_pft/status/1793127750687166633",
+          "text": "May 22, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1803290001431732692",
+          "text": "Jun 19, 2024"
+        },
+        {
+          "href": "https://x.com/nanairomadani",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/nanairomadani/status/1803031633299402959",
+          "text": "Jun 18, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/Skeb",
+          "text": "#Skeb"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1799392540564820355",
+          "text": "Jun 8, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/擴散希望",
+          "text": "#擴散希望"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1782786796977524924",
+          "text": "Apr 23, 2024"
+        },
+        {
+          "href": "https://youtube.com/shorts/5u0RZ4IA6bE?si=jGNw21bg6VL6RyA3",
+          "text": "youtube.com/shorts/5u0RZ4I…"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1782786796977524924/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780940568732086774",
+          "text": "Apr 18, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/讓大家花1分鐘了解我",
+          "text": "#讓大家花1分鐘了解我"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780940568732086774/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1795884864308466043",
+          "text": "May 29, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1795884864308466043/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228/photo/2",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228/photo/3",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228",
+          "text": "May 28, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/Vtuberフリー素材",
+          "text": "#Vtuberフリー素材"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1772158297837019155",
+          "text": "Mar 25, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/可希可賀",
+          "text": "#可希可賀"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1772158297837019155/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1806764640489370052",
+          "text": "Jun 28, 2024"
+        },
+        {
+          "href": "https://discord.gg/gTCs3q3D",
+          "text": "discord.gg/gTCs3q3D"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1806764640489370052/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1800484461282509185",
+          "text": "Jun 11, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523",
+          "text": "Apr 29, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/2",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/3",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/4",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1794045794515058956",
+          "text": "May 24, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1794045794515058956/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/materiale_/status/1793570046427664806/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/materiale_",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/materiale_/status/1793570046427664806",
+          "text": "May 23, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/Vtuber素材",
+          "text": "#Vtuber素材"
+        },
+        {
+          "href": "https://x.com/hashtag/おはようVtuber素材",
+          "text": "#おはようVtuber素材"
+        },
+        {
+          "href": "https://x.com/hashtag/おやすみVtuber素材",
+          "text": "#おやすみVtuber素材"
+        },
+        {
+          "href": "https://x.com/hashtag/Iriam素材",
+          "text": "#Iriam素材"
+        },
+        {
+          "href": "https://x.com/i/jf/onboarding/web?mode=signup",
+          "text": "Create account"
+        },
+        {
+          "href": "https://x.com/tos",
+          "text": "Terms of Service"
+        },
+        {
+          "href": "https://x.com/privacy",
+          "text": "Privacy Policy"
+        },
+        {
+          "href": "https://support.x.com/articles/20170514",
+          "text": "Cookie Use."
+        },
+        {
+          "href": "https://help.x.com/resources/accessibility",
+          "text": "Accessibility"
+        },
+        {
+          "href": "https://business.x.com/en/help/troubleshooting/how-twitter-ads-work.html?ref=web-twc-ao-gbl-adsinfo&utm_source=twc&utm_medium=web&utm_campaign=ao&utm_content=adsinfo",
+          "text": "Ads info"
+        },
+        {
+          "href": "https://x.com/i/jf/onboarding/web?mode=login",
+          "text": "Log in"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://x.com/",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/header_photo",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/photo",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/RocksnotRock",
+          "text": "@ RocksnotRock"
+        },
+        {
+          "href": "https://x.com/DaifukuMaow",
+          "text": "@ DaifukuMaow"
+        },
+        {
+          "href": "https://x.com/hashtag/小笨狗看這裡",
+          "text": "#小笨狗看這裡"
+        },
+        {
+          "href": "https://x.com/hashtag/小笨狗不能看",
+          "text": "#小笨狗不能看"
+        },
+        {
+          "href": "https://x.com/cdn-cgi/l/email-protection",
+          "text": "[email protected]"
+        },
+        {
+          "href": "https://t.co/N5dPMexEEz",
+          "text": "youtube.com/@Topa1120.chan…"
+        },
+        {
+          "href": "https://x.com/topa1120/following",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/verified_followers",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1924783480908775591",
+          "text": "May 20, 2025"
+        },
+        {
+          "href": "https://x.com/hashtag/Topaformance",
+          "text": "#Topaformance"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1924783480908775591/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780450226685477130",
+          "text": "Apr 17, 2024"
+        },
+        {
+          "href": "https://youtu.be/uIgVS2nZvHQ?si=BmvYOV-qa84Q5K-E",
+          "text": "youtu.be/uIgVS2nZvHQ?si…"
+        },
+        {
+          "href": "https://youtu.be/fLd855-q8lY?si=gnF85nvPDpfE-8mB",
+          "text": "youtu.be/fLd855-q8lY?si…"
+        },
+        {
+          "href": "https://x.com/hashtag/Totopa",
+          "text": "#Totopa"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780450226685477130/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1788203607265083847",
+          "text": "May 8, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/5月のVTuberフォロー祭り",
+          "text": "#5月のVTuberフォロー祭り"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1788203607265083847/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1793686533763211607",
+          "text": "May 23, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1793686533763211607/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/dEi_pft/status/1793127750687166633/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/dEi_pft",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/dEi_pft/status/1793127750687166633",
+          "text": "May 22, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1803290001431732692",
+          "text": "Jun 19, 2024"
+        },
+        {
+          "href": "https://x.com/nanairomadani",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/nanairomadani/status/1803031633299402959",
+          "text": "Jun 18, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/Skeb",
+          "text": "#Skeb"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1799392540564820355",
+          "text": "Jun 8, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/擴散希望",
+          "text": "#擴散希望"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1782786796977524924",
+          "text": "Apr 23, 2024"
+        },
+        {
+          "href": "https://youtube.com/shorts/5u0RZ4IA6bE?si=jGNw21bg6VL6RyA3",
+          "text": "youtube.com/shorts/5u0RZ4I…"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1782786796977524924/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780940568732086774",
+          "text": "Apr 18, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/讓大家花1分鐘了解我",
+          "text": "#讓大家花1分鐘了解我"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1780940568732086774/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1795884864308466043",
+          "text": "May 29, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1795884864308466043/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228/photo/2",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228/photo/3",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/DokuDarima/status/1795465400357937228",
+          "text": "May 28, 2024"
+        },
+        {
+          "href": "https://drive.google.com/drive/folders/1-5-9D1_9lJELmfl9jb-FcbApYy0TFaby",
+          "text": "drive.google.com/drive/folders/…"
+        },
+        {
+          "href": "https://x.com/hashtag/Vtuberフリー素材",
+          "text": "#Vtuberフリー素材"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1772158297837019155",
+          "text": "Mar 25, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/可希可賀",
+          "text": "#可希可賀"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1772158297837019155/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1806764640489370052",
+          "text": "Jun 28, 2024"
+        },
+        {
+          "href": "https://discord.gg/gTCs3q3D",
+          "text": "discord.gg/gTCs3q3D"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1806764640489370052/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1800484461282509185",
+          "text": "Jun 11, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523",
+          "text": "Apr 29, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/2",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/3",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1784835677865349523/photo/4",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/topa1120/status/1794045794515058956",
+          "text": "May 24, 2024"
+        },
+        {
+          "href": "https://x.com/topa1120/status/1794045794515058956/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/materiale_/status/1793570046427664806/photo/1",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/materiale_",
+          "text": ""
+        },
+        {
+          "href": "https://x.com/materiale_/status/1793570046427664806",
+          "text": "May 23, 2024"
+        },
+        {
+          "href": "https://x.com/hashtag/Vtuber素材",
+          "text": "#Vtuber素材"
+        },
+        {
+          "href": "https://x.com/hashtag/おはようVtuber素材",
+          "text": "#おはようVtuber素材"
+        },
+        {
+          "href": "https://x.com/hashtag/おやすみVtuber素材",
+          "text": "#おやすみVtuber素材"
+        },
+        {
+          "href": "https://x.com/hashtag/Iriam素材",
+          "text": "#Iriam素材"
+        },
+        {
+          "href": "https://x.com/i/jf/onboarding/web?mode=signup",
+          "text": "Create account"
+        },
+        {
+          "href": "https://x.com/tos",
+          "text": "Terms of Service"
+        },
+        {
+          "href": "https://x.com/privacy",
+          "text": "Privacy Policy"
+        },
+        {
+          "href": "https://support.x.com/articles/20170514",
+          "text": "Cookie Use."
+        },
+        {
+          "href": "https://help.x.com/resources/accessibility",
+          "text": "Accessibility"
+        },
+        {
+          "href": "https://business.x.com/en/help/troubleshooting/how-twitter-ads-work.html?ref=web-twc-ao-gbl-adsinfo&utm_source=twc&utm_medium=web&utm_campaign=ao&utm_content=adsinfo",
+          "text": "Ads info"
+        },
+        {
+          "href": "https://x.com/i/jf/onboarding/web?mode=login",
+          "text": "Log in"
+        }
+      ],
+      "visible_text_snippets": [
+        "多帕🐾薩摩耶Vtuber (@topa1120) / X 多帕🐾薩摩耶Vtuber 2,743 posts 多帕🐾薩摩耶Vtuber @topa1120 薩摩耶Vtuber(っ´ω`c) /LOGO設計：白樺木老師/繪師様：Rocks老師（ RocksnotRock ）/賴福2D建模師：毛大福老師（ DaifukuMaow ）/Fanart： #小笨狗看這裡 /R-18 tag： #小笨狗不能看 /聯絡信箱： [email protected] youtube.com/@Topa1120.chan… Joined May 2023 209",
+        "Following 689 Followers Posts Posts Replies Replies Media Media Pinned 多帕🐾薩摩耶Vtuber @topa1120 May 20, 2025 大家好我是薩摩耶多帕꜀( ꜆ᐢ. ̫.ᐢ)꜆ 雖然常被誤會，但我不是貓，是一隻狗！ 繪師媽媽： RocksnotRock 建模師爸爸： DaifukuMaow ❅二創標籤： #小笨狗看這裡 ❅R-18二創標籤： #小笨狗不能看 ❅直播標籤： #Topaformance 11 75 4.9K 多帕🐾薩摩耶Vtuber @topa1120",
+        "Apr 17, 2024 大家好我是薩摩耶多帕·ᗜ· 今晚終於要上架第1（+1）隻影片！ 趕緊來更新一下置頂的自我介紹w 這次準備了兩種版本的自我介紹！ 希望大家喜歡₍ᐢ‥ᐢ₎ ♡ youtu.be/uIgVS2nZvHQ?si… youtu.be/fLd855-q8lY?si… ❅二創標籤： #Totopa ❅直播標籤： #Topaformance 35 138 10K 多帕🐾薩摩耶Vtuber @topa1120 May 8, 2024",
+        "也來跟風一下( ᐡᴗ ̫ ᴗᐡ) ❅薩摩耶多帕 ❅犬科犬科犬科 ❅擅長節奏遊戲 ❅ 有一根神奇水管兼吸管 ❅請多指教(՞ ܸ. .ܸ ՞)\" #5月のVTuberフォロー祭り 10 16 91 2.8K 多帕🐾薩摩耶Vtuber @topa1120 May 23, 2024 你再繼續的話……刑法224條了解一下( ˘•ω•˘ ) デデチ @dEi_pft May 22, 2024 ほっぺ鷲掴み素材をどうぞ 17 69 2.3K 多帕🐾薩摩耶Vtuber @topa1120 Jun 19, 2024",
+        "收到了之後的開頭動畫！ 真的超超超可愛(⸝⸝ᐡ. ̫ .ᐡ⸝⸝) 不過那個tag啊啊啊啊…… 由衷希望繪師大人看不懂日文QQ 七彩まだに＠C108 1日目東2テ35ab @nanairomadani Jun 18, 2024 チョコミントアイスたべたい #小笨狗看這裡 #Skeb 00:00 13 67 2.9K 多帕🐾薩摩耶Vtuber @topa1120 Jun 8, 2024",
+        "大家好我是多帕！ 前一陣子因為生病沒有剪片的多帕！ 沒想到不知不覺youtube就快要500追了⋯⋯！ 500訂的時候，準備了一隻晚安人類的影片，可以的話請大家幫忙擴散，讓薩摩耶耶早日達成狗生成就·ᗜ· 下面是童叟無欺的搶先看٩( ´ω` )و #擴散希望 00:00 14 14 63 2.3K 多帕🐾薩摩耶Vtuber @topa1120 Apr 23, 2024 百訂大大大感謝5MA 5MA！ 多帕接下來也會繼續努力的|•͈ ·̫ •͈ ᐡ) youtube.com/shorts/5u0RZ4I… 11 49 1.4K 多帕🐾薩摩耶Vtuber",
+        "@topa1120 Apr 18, 2024 #讓大家花1分鐘了解我 我也來跟風一下٩( ´ω` )و ❅名稱：多帕 ❅MBTI：ENFP ❅座標：水管裡！ ❅星座：♏️天蠍座 ❅身高：155cm ❅動漫：入坑作是K-on！ ❅遊戲：薩爾達、音樂遊戲…… ❅喜歡的人：不會叫我小笨狗的人！！！ ❅個性：聰明的狗勾ᐢ. ̫.ᐢ 11 47 2.7K 多帕🐾薩摩耶Vtuber @topa1120 May 29, 2024 「多帕是……鮮奶茶派的……才不會被珍奶誘惑(ᐡ⸝⸝- -⸝⸝ᐡ)」 ドクダリマ @DokuDarima May 28, 2024 file",
+        "drive.google.com/drive/folders/… #Vtuberフリー素材 11 38 1.3K 多帕🐾薩摩耶Vtuber @topa1120 Mar 25, 2024 大吉大利！據說今晚有一隻超吉厲害的吉娃娃要初配信！ #可希可賀 40 1K 多帕🐾薩摩耶Vtuber @topa1120 Jun 28, 2024",
+        "《叮咚！您收到了一則邀請》 各位朋朋，大家好|•͈ ·̫ •͈ ᐡ) 這邊有個好消息想要傳達！ 多帕的多多販賣部正式開張了！ 無論喜歡牛奶養樂多、草莓養樂多、檸檬養樂多、伏特加養樂多…etc. 都歡迎大家加入DC٩( ´ω` )و discord.gg/gTCs3q3D 34 1.8K 多帕🐾薩摩耶Vtuber @topa1120 Jun 11, 2024",
+        "「啊勒啊勒？還在這邊不睡覺滑手機的是哪一位人類大人？」 謝謝各位人類大人，多帕順利來到了500訂，超開心(⸝⸝ᐡ. ̫ .ᐡ⸝⸝) 之前說的short也順利釋出，連結留言下收！ 再次特別感謝，辛苦用肝用毛讓多帕動起來的 DaifukuMaow (⸝⸝ ´艸`⸝⸝) 25 552 多帕🐾薩摩耶Vtuber @topa1120 Apr 29, 2024",
+        "【轉盤歌回】 這禮拜六在「毛大福的twitch（加粗加大48號標楷體）」會有毛大福&多帕的轉盤歌回！ 詳細規則和時程如圖！ 期待大家一起來玩₍ᐢ‥ᐢ₎ ♡ 現在已經開始募集歌單內容！ 請把想要我們唱的歌扔在棉花糖裡面( ´,,•ω•,,`)～ （棉花糖在留言區） *註：請不要丟霉花糖到多帕的棉花糖裡>< 25 938 多帕🐾薩摩耶Vtuber @topa1120 May 24, 2024 你會養出的是一隻快樂的多帕，或是……？ ぴくめにっ ⋮ 毎日フリー素材配布中 @materiale_ May 23, 2024",
+        "✨フリー素材✨ ／ バーチャルごっち素材☀ ＼ カラバリはリプ欄から✨ 《 いいね❤️&RP🔁 》だけでOK👍 #Vtuber素材 #Vtuberフリー素材 #おはようVtuber素材 #おやすみVtuber素材 #Iriam素材 25 517 New to X? Sign up now to get your own personalized timeline! Sign up with Google Sign up with Apple Create account By signing up, you agree to the",
+        "Terms of Service and Privacy Policy , including Cookie Use. Terms of Service Privacy Policy Cookie Policy Accessibility Ads info More © 2026 X Corp. Don't miss what's happening People on X are the first to know. Log in Sign up"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/@Topa1120.channel",
+      "fetched_at_unix": 1781529194,
+      "response": {
+        "content_type": "text/html; charset=utf-8"
+      },
+      "title": "Topa Ch. 多帕 - YouTube",
+      "meta": {
+        "apple-itunes-app": "app-id=544007664, app-argument=https://www.youtube.com/@Topa1120.channel?referring_app=com.apple.mobilesafari-smartbanner, affiliate-data=ct=smart_app_banner_polymer&pt=9008",
+        "theme-color": "rgba(255, 255, 255, 0.98)",
+        "description": "一隻快樂的薩摩耶૮ฅ・ﻌ・აฅ為了融入人類社會，學習人類的法律中！本犬僅供參考，如有法律糾紛請諮詢專業人士！",
+        "keywords": "影片, 分享, 可拍照的手機, 影像電話, 免費, 上傳",
+        "og:title": "Topa Ch. 多帕",
+        "og:site_name": "YouTube",
+        "og:url": "https://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA",
+        "og:image": "https://yt3.googleusercontent.com/ehDrkjTDeTa-p6TT0NplaRu4_OrRYV_lRlcsNtNGNhXnjnl8-qt9gTg2D1ZYvVbU7zkIMy46ybA=s900-c-k-c0x00ffffff-no-rj",
+        "og:image:width": "900",
+        "og:image:height": "900",
+        "og:description": "一隻快樂的薩摩耶૮ฅ・ﻌ・აฅ 為了融入人類社會，學習人類的法律中！ 本犬僅供參考，如有法律糾紛請諮詢專業人士！",
+        "al:ios:app_store_id": "544007664",
+        "al:ios:app_name": "YouTube",
+        "al:ios:url": "vnd.youtube://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA",
+        "al:android:url": "https://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA?feature=applinks",
+        "al:android:app_name": "YouTube",
+        "al:android:package": "com.google.android.youtube",
+        "al:web:url": "https://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA?feature=applinks",
+        "og:type": "profile",
+        "fb:app_id": "87741124305",
+        "twitter:card": "summary",
+        "twitter:site": "@youtube",
+        "twitter:url": "https://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA",
+        "twitter:title": "Topa Ch. 多帕",
+        "twitter:description": "一隻快樂的薩摩耶૮ฅ・ﻌ・აฅ 為了融入人類社會，學習人類的法律中！ 本犬僅供參考，如有法律糾紛請諮詢專業人士！",
+        "twitter:image": "https://yt3.googleusercontent.com/ehDrkjTDeTa-p6TT0NplaRu4_OrRYV_lRlcsNtNGNhXnjnl8-qt9gTg2D1ZYvVbU7zkIMy46ybA=s900-c-k-c0x00ffffff-no-rj",
+        "twitter:app:name:iphone": "YouTube",
+        "twitter:app:id:iphone": "544007664",
+        "twitter:app:name:ipad": "YouTube",
+        "twitter:app:id:ipad": "544007664",
+        "twitter:app:url:iphone": "vnd.youtube://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA",
+        "twitter:app:url:ipad": "vnd.youtube://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA",
+        "twitter:app:name:googleplay": "YouTube",
+        "twitter:app:id:googleplay": "com.google.android.youtube",
+        "twitter:app:url:googleplay": "https://www.youtube.com/channel/UC2Vvw_S0IZvvrEmYu6Jz6XA"
+      },
+      "headings": [],
+      "json_ld": [],
+      "social_or_media_links": [
+        {
+          "href": "https://www.youtube.com/",
+          "text": ""
+        },
+        {
+          "href": "https://www.youtube.com/about/",
+          "text": "簡介"
+        },
+        {
+          "href": "https://www.youtube.com/about/press/",
+          "text": "媒體"
+        },
+        {
+          "href": "https://www.youtube.com/about/copyright/",
+          "text": "著作權"
+        },
+        {
+          "href": "https://www.youtube.com/t/contact_us/",
+          "text": "與我們聯絡"
+        },
+        {
+          "href": "https://www.youtube.com/creators/",
+          "text": "創作者"
+        },
+        {
+          "href": "https://www.youtube.com/ads/",
+          "text": "廣告"
+        },
+        {
+          "href": "https://www.youtube.com/t/terms",
+          "text": "條款"
+        },
+        {
+          "href": "https://www.youtube.com/t/privacy",
+          "text": "隱私權"
+        },
+        {
+          "href": "https://www.youtube.com/about/policies/",
+          "text": "政策與安全性"
+        },
+        {
+          "href": "https://www.youtube.com/howyoutubeworks?utm_campaign=ytgen&utm_source=ythp&utm_medium=LeftNav&utm_content=txt&u=https%3A%2F%2Fwww.youtube.com%2Fhowyoutubeworks%3Futm_source%3Dythp%26utm_medium%3DLeftNav%26utm_campaign%3Dytgen",
+          "text": "YouTube 運作方式"
+        },
+        {
+          "href": "https://www.youtube.com/new",
+          "text": "測試新功能"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.youtube.com/",
+          "text": ""
+        },
+        {
+          "href": "https://www.youtube.com/about/",
+          "text": "簡介"
+        },
+        {
+          "href": "https://www.youtube.com/about/press/",
+          "text": "媒體"
+        },
+        {
+          "href": "https://www.youtube.com/about/copyright/",
+          "text": "著作權"
+        },
+        {
+          "href": "https://www.youtube.com/t/contact_us/",
+          "text": "與我們聯絡"
+        },
+        {
+          "href": "https://www.youtube.com/creators/",
+          "text": "創作者"
+        },
+        {
+          "href": "https://www.youtube.com/ads/",
+          "text": "廣告"
+        },
+        {
+          "href": "https://developers.google.com/youtube",
+          "text": "開發人員"
+        },
+        {
+          "href": "https://www.youtube.com/t/terms",
+          "text": "條款"
+        },
+        {
+          "href": "https://www.youtube.com/t/privacy",
+          "text": "隱私權"
+        },
+        {
+          "href": "https://www.youtube.com/about/policies/",
+          "text": "政策與安全性"
+        },
+        {
+          "href": "https://www.youtube.com/howyoutubeworks?utm_campaign=ytgen&utm_source=ythp&utm_medium=LeftNav&utm_content=txt&u=https%3A%2F%2Fwww.youtube.com%2Fhowyoutubeworks%3Futm_source%3Dythp%26utm_medium%3DLeftNav%26utm_campaign%3Dytgen",
+          "text": "YouTube 運作方式"
+        },
+        {
+          "href": "https://www.youtube.com/new",
+          "text": "測試新功能"
+        }
+      ],
+      "visible_text_snippets": [
+        "Topa Ch. 多帕 - YouTube 簡介 媒體 著作權 與我們聯絡 創作者 廣告 開發人員 條款 隱私權 政策與安全性 YouTube 運作方式 測試新功能 © 2026 Google LLC"
+      ]
+    }
+  ],
+  "errors": []
+}
