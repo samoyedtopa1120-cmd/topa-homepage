@@ -2,6 +2,10 @@
 
 Topa Ch. 多帕的靜態個人首頁，收錄公開簡介、活動資訊、作品連結與社群入口。
 
+## Maintainers
+
+- [多帕（@samoyedtopa1120-cmd）](https://github.com/samoyedtopa1120-cmd) — Repository owner and content maintainer
+
 ## Static Site
 
 部署網址：
