@@ -1,0 +1,68 @@
+name: Deploy main and staging to Pages
+
+on:
+  push:
+    branches: [main, staging]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Always publish both branches together. Do not interrupt a deployment in progress.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out deployment tools
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Check out latest production branch
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          path: sources/main
+          persist-credentials: false
+
+      - name: Check out latest preview branch
+        uses: actions/checkout@v6
+        with:
+          ref: staging
+          path: sources/staging
+          persist-credentials: false
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Test website assembly
+        run: python3 -B .github/scripts/test_build_pages.py
+
+      - name: Assemble both websites
+        run: python3 -B .github/scripts/build_pages.py sources/main sources/staging _site
+
+      - name: Upload combined website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy both websites
+        id: deployment
+        uses: actions/deploy-pages@v4
