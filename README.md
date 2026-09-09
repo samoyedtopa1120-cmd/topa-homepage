@@ -25,7 +25,11 @@ https://samoyedtopa1120-cmd.github.io/topa-homepage/
 ## Files
 
 - `index.html` - 網站主頁內容與社群分享 metadata
-- `styles.css` - 頁面樣式
+- `styles.css` - 藍白色響應式頁面樣式
+- `script.js` - 手機導覽、影音分類、相簿放大與二創展開
+- `docs/content-inventory.md` - 改版前完整文字、連結與素材摘錄
+- `docs/original-content.json` - 改版前結構化內容清單
+- `docs/redesign-notes.md` - 設計、文案改寫及驗證紀錄
 - `assets/` - 網站使用的圖片素材
 - `source-profile.json` - 公開資料整理
 - `source-notes.md` - 資料來源與整理筆記

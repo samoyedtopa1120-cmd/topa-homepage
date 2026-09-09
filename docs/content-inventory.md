@@ -1,0 +1,603 @@
+# 原頁完整內容摘錄
+
+此檔保留改版前 index.html 的所有文字、連結與圖片資訊，供改寫核對。角色與活動資料以原頁為準，未新增對外查證的資訊。
+
+## 文字
+
+Topa Ch. 多帕 | 薩摩耶 VTuber
+
+Topa Ch. 多帕
+
+Profile
+
+Lore
+
+Activities
+
+Media
+
+Visuals
+
+Fanart
+
+Links
+
+Samoyed VTuber / Virtual Singer
+
+多帕 Topa
+
+從雪國來的薩摩耶，誤食托帕石後變成人型。狗即狗，不是貓。
+
+11/20
+
+Topaz
+
+養樂多
+
+ともとも
+
+YouTube
+
+Twitch
+
+X / Twitter
+
+Discord
+
+Email
+
+Dog, not cat.
+
+ともとも
+
+狗即狗，不是貓
+
+養樂多，養一隻快樂的多帕
+
+パイパイ
+
+Samoyed VTuber
+
+Topa Ch. 多帕
+
+Profile
+
+不是貓，也不是兔子，是狗！
+
+多帕是一隻薩摩耶 VTuber，生日是 11/20，身高 155 公分（不含耳朵）， 體重號稱 12 個罐罐。因為尖尖的耳朵、翻唱過「バニー」，偶爾會被誤認成貓或兔子； 本犬對此嚴厲澄清：狗即狗，不是貓。
+
+平常在 YouTube 與 Twitch 開台，內容包含遊戲、雜談、歌回、練歌、運動企劃，以及偶爾出現的法條哄睡。 開場招呼是「ともとも／多摩多摩」，道別語是「パイパイ」。
+
+Name
+
+多帕
+
+Species
+
+薩摩耶（狗！）
+
+Birthday
+
+11/20
+
+Height
+
+155 公分（不含耳朵）
+
+Fan Name
+
+養樂多
+
+Fanart
+
+#小笨狗看這裡
+
+Lore
+
+托帕石、曇花與神奇魔法水管
+
+Topaz
+
+托帕石
+
+多帕來自雪國，因為噎到誤食托帕石而變成人型，可以在人型與狗型之間自由切換。
+
+Flower
+
+曇花
+
+曇花是 11/20 的生日花，也是多帕胸前蝴蝶結前方的花。
+
+Pipe
+
+水管
+
+最初是進入人類世界的防身武器，後來成為趁手道具，也被唱成「神奇魔法水管，是多帕的吸管」。
+
+Activities
+
+唱歌、遊戲、養樂多
+
+01
+
+Cover / Music
+
+日文歌曲翻唱為主，也有原創與合作曲。近期也常自己肝 PV，出 cover 的頻率提高。
+
+02
+
+Game Streams
+
+常直播魔物獵人、楓之谷 Artale，也喜歡薩爾達、maimai、Muse Dash、節奏醫生與 Ratatan。
+
+03
+
+養樂多
+
+粉絲名是養樂多，來自「養樂多，養一隻快樂的多帕！」，也延伸出不同口味與階層的養樂多。
+
+Languages
+
+狗語？ > 中文 > 日文 > 英文 > 台語。日文通過 N1，翻唱歌曲多以日文為主。
+
+Favorites
+
+睡覺、唱歌、音樂遊戲、旅行；喜歡薄荷巧克力、草莓、肉與開心果製品。
+
+Weak Points
+
+害怕蜘蛛、昆蟲、恐怖內容；苦的東西、芋頭、秋葵與苦茶也不在友善清單。
+
+Media
+
+精選影音
+
+Cover
+
+ラビットホール / DECO*27
+
+covered by 多帕 Topa
+
+Cover
+
+残響散歌 / Aimer
+
+covered by 多帕 Topa
+
+Official Music Video
+
+冬天．我們不說再見
+
+多帕 Topa
+
+Official Music Video
+
+負け犬同盟
+
+多帕 Topa x 魷魷 Yuyu
+
+Cover
+
+ハッピーラッキーチャッピー / ano
+
+covered by 多帕 Topa
+
+Official Visuals
+
+多帕的相簿
+
+全部主視覺皆由 Rocks 老師繪製。
+
+2024出道主視覺
+
+2025周年主視覺
+
+2025生日主視覺
+
+原創曲〈多魚的我們〉主視覺
+
+〈 ハッピーラッキーチャッピー〉主視覺
+
+〈ハナタバ〉主視覺
+
+〈チェリーポップ〉主視覺
+
+Credits
+
+偉大的老師們
+
+Logo
+
+白樺木老師
+
+Illustrator
+
+Rocks 老師（@RocksnotRock）
+
+Live2D Rigger
+
+毛大福老師（@DaifukuMaow）
+
+Milestones
+
+活動紀錄
+
+2024/10/25
+
+YouTube 初配信
+
+正式於 YouTube 進行初配信；更早期曾在 Twitch 開始直播活動，目前固定於 YouTube 與 Twitch 雙平台開台。
+
+2025/03/15
+
+月讀女僕咖啡廳連動
+
+與夜市型偶像魷魷共同舉辦線下連動活動，是多帕首次大型線下聚。
+
+2025/04/04
+
+幼帕出道
+
+兒童節特別企劃模型登場，由養樂多羊羊委託並贈與多帕。
+
+2026/01/01
+
+原創曲不說再見系列
+
+發布與 Hikari 合作的原創曲系列，包含中文與日文版本。
+
+2026/03/22
+
+原創曲-多魚的我們
+
+發布與魷魷、舞弦、Hikari合作的原創曲系列，包含中文與日文版本。
+
+Fanart
+
+多帕的粉絲二創
+
+謝謝每一位養樂多用圖像、委託與創作留下多帕的樣子，這些心意都是很珍貴的收藏。 如果你的作品還沒有列在這裡，可以通知多帕，後續會再進行收錄。
+
+作品序號：1
+
+毛大福來自深淵
+
+作者：Guro@暗月の剣（ @guromental ）
+
+備註：多帕收到的第一張二創，非常喜歡。
+
+作者很用心地觀察了多帕的每一個細節，如果要說有什麼意見，希望不要往奇怪的地方塞奇怪的東西。
+
+作品序號：2
+
+黑色薩摩耶
+
+作者：快被鬼抓走的Finis（ @XcwFinis ）
+
+備註：很稀有的黑色薩摩耶，但臺灣的氣候好熱，一定不是曬太陽曬出來的！
+
+作品序號：3
+
+戀活多帕
+
+作者：這是一顆神秘包子（ @SnowRain_R18 ）
+
+備註：用遊戲捏出來的多帕，從露肩到小辮子都有還原，超級厲害！
+
+作品序號：4
+
+狗狗祟祟的多帕
+
+作者：にゃ大福（ @cat_tsuki29 ）
+
+備註：超級可愛，蓬鬆的大尾巴，絕對不會有人再把我當成貓！硬要說有什麼意見，就是希望不要什麼髒東西都往嘴裡放。
+
+作品序號：5
+
+脫帕
+
+作者：Guro@暗月の剣（ @guromental ）
+
+備註：很可愛，但重新聲明，多帕的裙子，不能吃，也請不要奪走它。
+
+作品序號：6
+
+打太鼓的狗
+
+作者：にゃ大福（ @cat_tsuki29 ）
+
+備註：當時毛毛和喵大福老師給陷入低谷的狗狗的驚喜，超級驚喜，謝謝你們。
+
+作品序號：7
+
+快把燒肉還給我！
+
+作者：小黑多帕一生推（ @XiaoHay8787 ）
+
+備註：沒有人可以跟我搶燒肉。如果想吃我的肉，就用你自己來換吧！
+
+作品序號：8
+
+掌中多帕
+
+作者：小黑多帕一生推（ @XiaoHay8787 ）
+
+備註：不只貓咪，狗狗也喜歡被摸下巴，靠在掌心很有安全感。
+
+作品序號：9
+
+多帕跳月
+
+作者：Guro@暗月の剣（ @guromental ）
+
+備註：中秋節不只有月兔，還有月狗！
+
+特別喜歡Guro在各個細節偷偷放入毛毛的做法(?)
+
+這張能清楚看到尾巴！不要再說我是貓！！！（或兔）
+
+畫龍點金的是那個小名牌，喜歡！
+
+作品序號：10
+
+嘻嘻，被你發現了
+
+作者：小黑多帕一生推（ @XiaoHay8787 ）
+
+備註：笑得很燦爛的多帕，或許不為人知的一面被大家悄然發現。
+
+作品序號：11
+
+25
+
+作者：にゃ大福（ @cat_tsuki29 ）
+
+備註：為了慶祝和宣傳多帕youtube初配信的插圖，超級喵大福老師，超喜歡！
+
+手中比的「25」代表著初配信日期的25號！
+
+作品序號：12
+
+薩摩YA！
+
+作者：迷子焼き（ @ maigoyaki ）
+
+備註：迷子燒老師，我從小看您的畫長大呀呀呀呀！
+
+有種追星成功的感覺，又複雜又感動嗚嗚嗚嗚QQ
+
+這是慶祝和宣傳多帕youtube初配信的插圖，薩摩比YA！
+
+作品序號：13
+
+topaです！
+
+作者：FULI（ @windalbum）
+
+備註：fuliharu畫給我的初配信宣傳圖！
+
+還特別寫上日文宣傳！超級用心！
+
+毛毛的部分，最後還是被A了就是了......
+
+作品序號：14
+
+多帕問號
+
+作者：Edan_艾登（ @zero54238 ）
+
+備註：超級艾登畫風的可愛多帕！
+
+當你對多帕說「多帕你是貓！」時，多帕會露出的表情。
+
+是艾登送給多帕的生日賀圖，可愛！
+
+作品序號：15
+
+薩摩YA 2
+
+作者：Guro@暗月の剣（ @guromental ）
+
+備註：慶祝多帕生日的賀圖！謝謝Guro！
+
+薩摩YA表示薩摩耶很耶！
+
+喜歡天空和像是花田的背景！
+
+難得出現狗型薩摩耶，好喜！
+
+作品序號：16
+
+禮物耶耶
+
+作者：斯呱斯特萊（ @94045leoleo ）
+
+備註：很稀有的多帕非雙馬尾樣子！
+
+是斯特萊畫的生日賀圖！
+
+鈕扣的小眼睛特別可愛！
+
+整張圓圓的很有小人偶的感覺，可愛！
+
+作品序號：17
+
+探頭耶
+
+作者：_そら（ @_annisyong ）
+
+備註：「那是給我的草莓蛋糕嗎？」
+
+小心翼翼，狗狗祟祟探頭摩耶！
+
+是空汐繪製的多帕生日賀圖！
+
+作品序號：18
+
+草莓甜點快樂小狗（未命名檔案）
+
+作者：Rocks（ @RocksnotRock ）
+
+備註：親媽Rocks老師繪製的生日賀圖！
+
+謝謝您讓我誕生在世界上，讓我可以和大家相遇相知！
+
+毛毛偷偷被揍了，超級可愛！
+
+除了草莓蛋糕，還有草莓大福，是沒有發霉的大福！
+
+作品序號：19
+
+魔物獵犬：冰原
+
+作者：迷子焼き（ @ maigoyaki ）
+
+備註：超超超超可愛的浮空龍套裝和鬆軟天國（底下其實是黑龍雙刀）
+
+神繪師x神遊戲
+
+多帕真的死而無憾。
+
+作品序號：20
+
+say 狗bye~
+
+作者：雲糰（柒柒）（ @Bai35461097 ）
+
+委託人：斯特萊
+
+備註：超級可愛的Q版多帕!!!
+
+嗨！我是薩摩耶多帕（揮揮揮）
+
+作品序號：21
+
+金屬徽章摩耶
+
+作者：雲糰（柒柒）（ @Bai35461097 ）
+
+委託人：斯特萊
+
+備註：超級可愛的徽章！
+
+很好地把多帕的元素（蝴蝶結、曇花、薩摩耶、叉叉等）融入！
+
+印製出來的實物也是非常有質感！
+
+但現在成為消失的金屬徽章，心情複雜。
+
+Links
+
+相關連結
+
+YouTube
+
+Topa Ch. 多帕
+
+Twitch
+
+topa_1120
+
+X / Twitter
+
+@topa1120
+
+Discord
+
+Invite
+
+Mail
+
+samoyed.topa1120@
+
+gmail.com
+
+Playlist
+
+多帕唱過的歌
+
+Merch
+
+周邊購買
+
+Donate
+
+綠界
+
+Donate
+
+歐付寶
+
+Donate
+
+山羌
+
+Profile source: X @topa1120, YouTube @Topa1120.channel, and Discord #多帕的魔法相簿. Official key visuals by Rocks 老師. Images are public channel/profile, official visual, and fanart assets; confirm usage rights before production deployment.
+
+## 連結
+
+- #top
+- #profile
+- #lore
+- #activities
+- #media
+- #visuals
+- #fanart
+- #links
+- https://www.youtube.com/@Topa1120.channel
+- https://www.twitch.tv/topa_1120
+- https://x.com/topa1120
+- https://discord.com/invite/Zx7xM9aJVY
+- mailto:samoyed.topa1120@gmail.com
+- https://www.youtube.com/watch?v=0lAFji6ZHgo
+- https://www.youtube.com/watch?v=-tlTog9WBcI
+- https://www.youtube.com/watch?v=ZlMq4FrpyO8
+- https://www.youtube.com/watch?v=ipCfbsUQV84
+- https://www.youtube.com/watch?v=JhQOE7O64cQ
+- https://www.youtube.com/@Topa1120.channel
+- https://www.twitch.tv/topa_1120
+- https://x.com/topa1120
+- https://discord.com/invite/Zx7xM9aJVY
+- mailto:samoyed.topa1120@gmail.com
+- https://youtube.com/playlist?list=PLYw3W-AQqDiNjssrl4P_W_wYsGhFq0Vyr
+- https://www.myacg.com.tw/seller_market.php?seller=552667
+- https://payment.ecpay.com.tw/Broadcaster/Donate/85C7382313C1128C863B7826B020375C
+- https://payment.opay.tw/Broadcaster/Donate/44319C02C2A8F1C43497ADE37872A1DE
+- https://deerdonate.herokuapp.com/donation/%E5%A4%9A%E5%B8%95
+
+## 圖片
+
+- ./assets/topa-avatar.jpg：多帕的 YouTube 頻道頭像
+- ./assets/rabbit-hole.jpg：ラビットホール cover 影片縮圖
+- ./assets/zankyosanka.jpg：残響散歌 cover 影片縮圖
+- ./assets/fuyu.jpg：冬天．我們不說再見 official music video 縮圖
+- ./assets/makeinu-doumei.jpg：負け犬同盟 official music video 縮圖
+- ./assets/happy-lucky-chappy.jpg：ハッピーラッキーチャッピー cover 影片縮圖
+- ./assets/key-visuals/2024-debut-visual.webp：2024出道主視覺
+- ./assets/key-visuals/2025-anniversary-visual.webp：2025周年主視覺
+- ./assets/key-visuals/2025-birthday-visual.webp：2025生日主視覺
+- ./assets/key-visuals/original-song-duoyu-visual.webp：原創曲〈多魚的我們〉主視覺
+- ./assets/key-visuals/happy-lucky-chappy-visual.webp：〈 ハッピーラッキーチャッピー〉主視覺
+- ./assets/key-visuals/hanataba-visual.webp：〈ハナタバ〉主視覺
+- ./assets/key-visuals/cherry-pop-visual.webp：〈チェリーポップ〉主視覺
+- ./assets/fanart/fanart-01.jpg：毛大福來自深淵
+- ./assets/fanart/fanart-02.jpg：黑色薩摩耶
+- ./assets/fanart/fanart-03.jpg：戀活多帕
+- ./assets/fanart/fanart-04.jpg：狗狗祟祟的多帕
+- ./assets/fanart/fanart-05.png：脫帕
+- ./assets/fanart/fanart-06.gif：打太鼓的狗
+- ./assets/fanart/fanart-07.png：快把燒肉還給我！
+- ./assets/fanart/fanart-08.png：掌中多帕
+- ./assets/fanart/fanart-09.png：多帕跳月
+- ./assets/fanart/fanart-10.png：嘻嘻，被你發現了
+- ./assets/fanart/fanart-11.png：25
+- ./assets/fanart/fanart-12.png：薩摩YA！
+- ./assets/fanart/fanart-13.png：topaです！
+- ./assets/fanart/fanart-14.gif：多帕問號
+- ./assets/fanart/fanart-15.jpg：薩摩YA 2
+- ./assets/fanart/fanart-16.png：禮物耶耶
+- ./assets/fanart/fanart-17.png：探頭耶
+- ./assets/fanart/fanart-18.png：草莓甜點快樂小狗（未命名檔案）
+- ./assets/fanart/fanart-19.png：魔物獵犬：冰原
+- ./assets/fanart/fanart-20.png：say 狗bye~
+- ./assets/fanart/fanart-21.png：金屬徽章摩耶
