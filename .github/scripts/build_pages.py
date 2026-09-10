@@ -1,8 +1,24 @@
 """Assemble main at / and staging at /staging/ for one Pages deployment."""
 import argparse
+import hashlib
 import re
 import shutil
 from pathlib import Path
+
+
+def version_assets(document: str, source: Path) -> str:
+    """A changed CSS/JS file gets a new URL instead of reusing a cached response."""
+    pattern = (
+        r"(?P<attribute>(?:href|src)\s*=\s*)(?P<quote>[\"'])"
+        r"(?P<path>(?:\./)?(?:styles\.css|script\.js))"
+        r"(?:\?[^\"']*)?(?P=quote)"
+    )
+    def replace(match):
+        asset = source / match['path']
+        version = hashlib.sha256(asset.read_bytes()).hexdigest()[:12]
+        quote = match['quote']
+        return f"{match['attribute']}{quote}{match['path']}?v={version}{quote}"
+    return re.sub(pattern, replace, document)
 
 
 def build(main: Path, staging: Path, output: Path) -> None:
@@ -11,7 +27,8 @@ def build(main: Path, staging: Path, output: Path) -> None:
             if not (source / required).exists():
                 raise ValueError(f'Missing required website file: {source / required}')
 
-    preview_html = (staging / 'index.html').read_text(encoding='utf-8')
+    main_html = version_assets((main / 'index.html').read_text(encoding='utf-8'), main)
+    preview_html = version_assets((staging / 'index.html').read_text(encoding='utf-8'), staging)
     if not re.search(r'</head\s*>', preview_html, re.I) or not re.search(r'<body\b[^>]*>', preview_html, re.I):
         raise ValueError('staging/index.html must contain head and body elements')
     preview_html = re.sub(
@@ -40,6 +57,7 @@ def build(main: Path, staging: Path, output: Path) -> None:
             if file.is_file() and (file.suffix in ('.html', '.css', '.js', '.ico') or file.name == 'robots.txt'):
                 shutil.copy2(file, destination / file.name)
         shutil.copytree(source / 'assets', destination / 'assets')
+    (output / 'index.html').write_text(main_html, encoding='utf-8')
     (output / 'staging/index.html').write_text(preview_html, encoding='utf-8')
     (output / '.nojekyll').touch()
 

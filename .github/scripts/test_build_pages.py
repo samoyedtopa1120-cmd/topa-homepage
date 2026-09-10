@@ -1,4 +1,5 @@
 """Check that deployment cannot mix the production and preview sites."""
+import re
 import subprocess
 import sys
 import tempfile
@@ -42,6 +43,41 @@ class BuildPagesTests(unittest.TestCase):
             self.assertIn('href="../"', preview)
             self.assertIn('<title>[Staging] Topa</title>', preview)
             self.assertEqual((root / 'staging/index.html').read_text().count('noindex'), 0)
+
+    def test_asset_urls_change_with_content_and_keep_branches_separate(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            original_html = (
+                '<html><head><title>Topa</title>'
+                '<link rel="stylesheet" href="./styles.css?v=old" />'
+                '<script src="./script.js" defer></script>'
+                '</head><body>Topa</body></html>'
+            )
+            for branch in ('main', 'staging'):
+                source = root / branch
+                (source / 'assets').mkdir(parents=True)
+                (source / 'index.html').write_text(original_html)
+                (source / 'styles.css').write_text(f'/* {branch} */')
+                (source / 'script.js').write_text('// same script')
+            def assemble(name):
+                subprocess.run(
+                    [sys.executable, str(SCRIPT), str(root / 'main'),
+                     str(root / 'staging'), str(root / name)], check=True,
+                )
+                return [(root / name / path).read_text()
+                        for path in ('index.html', 'staging/index.html')]
+            first = assemble('first')
+            pattern = r'href="(\./styles\.css\?v=[a-f0-9]{12})"'
+            first_urls = [re.search(pattern, page) for page in first]
+            self.assertTrue(all(first_urls), 'Every branch needs a content-versioned CSS URL')
+            self.assertNotEqual(first_urls[0][1], first_urls[1][1])
+            self.assertRegex(first[0], r'src="\./script\.js\?v=[a-f0-9]{12}"')
+            self.assertEqual(assemble('same'), first, 'Unchanged files must keep stable URLs')
+            (root / 'main/styles.css').write_text('/* new production style */')
+            changed = assemble('changed')
+            self.assertNotEqual(re.search(pattern, changed[0])[1], first_urls[0][1])
+            self.assertEqual(changed[1], first[1], 'Production changes must not alter preview URLs')
+            self.assertEqual((root / 'main/index.html').read_text(), original_html)
 
     def test_missing_branch_fails_before_creating_output(self):
         with tempfile.TemporaryDirectory() as temp:

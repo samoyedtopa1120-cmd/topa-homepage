@@ -22,3 +22,9 @@ python3 -B .github/scripts/test_build_pages.py
 ```
 
 要讓預覽版成為正式版，將網站改動合併到 main 即可。部署設定本身不會將 staging 的網頁內容合併進 main。
+
+## 避免改版時混用舊快取
+
+打包程式會為 styles.css 和 script.js 加上各自內容的 SHA-256 前 12 碼，例如 styles.css?v=c8faafeb53ed。檔案內容改變，瀏覽器便會請求新 URL；兩個分支分別計算。這只改變部署產物中的引用，不改動版面或資源內容。
+
+如果 Pages Source 還是「Deploy from a branch」，合併 main 時會同時觸發舊的 pages-build-deployment 和雙版本 Actions。後完成的舊部署會覆蓋完整網站，造成 /staging/ 消失。倉庫擁有者必須將 Source 改成 GitHub Actions；重新執行雙版本 Actions 只能暫時恢復預覽站，不能取代這項設定。
