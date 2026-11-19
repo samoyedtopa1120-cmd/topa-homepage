@@ -1,18 +1,21 @@
 'use strict';
 
+// Texts written by this file come from i18n.js, which also switches the page language.
+const {t} = window.TopaI18n;
+
 // Content and image links remain usable when JavaScript is unavailable.
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#main-nav');
 menuButton.hidden = false;
 function closeMenu() {
   menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.setAttribute('aria-label', '開啟導覽選單');
+  menuButton.setAttribute('aria-label', t('ui.menuOpen'));
   navigation.classList.remove('is-open');
 }
 menuButton.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') !== 'true';
   menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.setAttribute('aria-label', open ? '關閉導覽選單' : '開啟導覽選單');
+  menuButton.setAttribute('aria-label', t(open ? 'ui.menuClose' : 'ui.menuOpen'));
   navigation.classList.toggle('is-open', open);
 });
 navigation.addEventListener('click', (event) => {
@@ -47,7 +50,7 @@ function updateVideos() {
   videoGrid.classList.toggle('is-filtered', videoFilter !== 'all');
   videoMore.hidden = matching.length <= firstVideos;
   videoToggle.setAttribute('aria-expanded', String(showAllVideos));
-  videoToggle.firstChild.textContent = showAllVideos ? '收起作品 ' : `看全部 ${matching.length} 首 `;
+  videoToggle.firstChild.textContent = (showAllVideos ? t('ui.videoLess') : t('ui.videoAll', {n: matching.length})) + ' ';
   videoToggle.querySelector('span').textContent = showAllVideos ? '−' : '＋';
 }
 document.querySelector('.media-toolbar').hidden = false;
@@ -95,7 +98,7 @@ if (typeof videoDialog.showModal === 'function') {
     youtube.href = link.href;
     youtube.target = '_blank';
     youtube.rel = 'noopener noreferrer';
-    youtube.textContent = '在 YouTube 觀看 ↗';
+    youtube.textContent = t('ui.watch');
     const released = link.querySelector('time');
     const details = [title, link.querySelector('span').textContent.trim(), released && released.textContent.trim()];
     videoCaption.replaceChildren(`${details.filter(Boolean).join(' · ')}　`, youtube);
@@ -117,16 +120,23 @@ if (typeof videoDialog.showModal === 'function') {
 const fanart = [...document.querySelectorAll('.fanart-card')];
 const moreButton = document.querySelector('#fanart-toggle');
 const galleryStatus = document.querySelector('#gallery-status');
+const firstFanart = 6;
+let showAllFanart = false;
+function updateFanart() {
+  fanart.slice(firstFanart).forEach((card) => { card.hidden = !showAllFanart; });
+  moreButton.setAttribute('aria-expanded', String(showAllFanart));
+  moreButton.textContent = showAllFanart ? `${t('ui.fanartLess')} −` : `${t('ui.fanartAll', {n: fanart.length})} ＋`;
+  galleryStatus.textContent = showAllFanart
+    ? t('ui.fanartEvery', {n: fanart.length})
+    : t('ui.fanartSome', {shown: firstFanart, rest: fanart.length - firstFanart});
+}
 document.querySelector('.gallery-more').hidden = false;
-fanart.slice(6).forEach((card) => { card.hidden = true; });
 moreButton.addEventListener('click', () => {
-  const expanded = moreButton.getAttribute('aria-expanded') !== 'true';
-  fanart.slice(6).forEach((card) => { card.hidden = !expanded; });
-  moreButton.setAttribute('aria-expanded', String(expanded));
-  moreButton.textContent = expanded ? '收起收藏 −' : '看全部 21 件收藏 ＋';
-  galleryStatus.textContent = expanded ? '21 件收藏都在這裡，謝謝每一位養樂多。' : '先看看這 6 件，還有 15 件收藏。';
-  if (!expanded) document.querySelector('#fanart').scrollIntoView({block: 'start'});
+  showAllFanart = !showAllFanart;
+  updateFanart();
+  if (!showAllFanart) document.querySelector('#fanart').scrollIntoView({block: 'start'});
 });
+updateFanart();
 
 const dialog = document.querySelector('#image-dialog');
 const dialogImage = document.querySelector('#lightbox-image');
@@ -141,7 +151,7 @@ if (typeof dialog.showModal === 'function') {
       const author = card.querySelector('.fanart-author');
       dialogImage.src = link.href;
       dialogImage.alt = image.alt;
-      dialogCaption.textContent = image.alt + (author ? ' · ' + author.textContent.trim() : ' · 繪製：Rocks 老師');
+      dialogCaption.textContent = `${image.alt} · ${author ? author.textContent.trim() : t('ui.byRocks')}`;
       dialog.showModal();
       document.body.classList.add('modal-open');
     });
@@ -174,3 +184,10 @@ if ('IntersectionObserver' in window) {
     if (target) sectionObserver.observe(target);
   });
 }
+
+// Texts this file wrote follow a language switch.
+document.addEventListener('topa:language', () => {
+  menuButton.setAttribute('aria-label', t(menuButton.getAttribute('aria-expanded') === 'true' ? 'ui.menuClose' : 'ui.menuOpen'));
+  updateVideos();
+  updateFanart();
+});

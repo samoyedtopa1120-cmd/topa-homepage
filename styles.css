@@ -148,6 +148,40 @@ a,button {
   bottom:-9px;
   left:50%;
 }
+.lang-switch {
+  display:flex;
+  align-self:center;
+  gap:2px;
+  padding:3px;
+  border:1px solid var(--line);
+  border-radius:30px;
+}
+.lang-switch[hidden] {
+  display:none;
+}
+.lang-switch button {
+  border:0;
+  background:none;
+  border-radius:20px;
+  padding:4px 10px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.4;
+  color:var(--muted);
+  white-space:nowrap;
+  cursor:pointer;
+}
+.lang-switch button:hover {
+  color:var(--blue);
+}
+.lang-switch button[aria-pressed=true] {
+  background:var(--blue);
+  color:white;
+}
+html.lang-pending body {
+  visibility:hidden;
+}
 .header-youtube {
   display:flex;
   align-items:center;
@@ -1194,10 +1228,23 @@ body.modal-open {
     margin-left:auto;
   }
   .site-header nav {
-    gap:15px;
+    gap:11px;
   }
   .site-header nav a {
     font-size:12px;
+  }
+  /* Narrow header: only the current language shows, and clicking it moves to the next one. */
+  .lang-switch button {
+    padding:4px 9px;
+  }
+  .lang-switch button[aria-pressed=false] {
+    display:none;
+  }
+  .lang-switch button[aria-pressed=true]:after {
+    content:' ⇄';
+  }
+  .lang-long {
+    display:none;
   }
   .hero-inner {
     padding:48px 30px 64px;
@@ -1400,6 +1447,23 @@ body.modal-open {
   }
   .site-header nav a[aria-current]:after {
     display:none;
+  }
+  .site-header nav .lang-switch {
+    align-self:flex-start;
+    margin:12px 0 6px;
+  }
+  .lang-switch button[aria-pressed=false] {
+    display:inline-block;
+  }
+  .lang-switch button[aria-pressed=true]:after {
+    content:none;
+  }
+  .lang-long {
+    display:inline;
+  }
+  .lang-switch button {
+    font-size:14px;
+    padding:6px 14px;
   }
   .hero-inner {
     padding:38px 28px 69px;
