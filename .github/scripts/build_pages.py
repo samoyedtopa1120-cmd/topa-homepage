@@ -1,6 +1,8 @@
 """Assemble main at / and staging at /staging/ for one Pages deployment."""
 import argparse
 import hashlib
+import html
+import json
 import re
 import shutil
 from pathlib import Path
@@ -21,14 +23,60 @@ def version_assets(document: str, source: Path) -> str:
     return re.sub(pattern, replace, document)
 
 
-def build(main: Path, staging: Path, output: Path) -> None:
+VIDEO_BLOCK = re.compile(r'(<!-- videos:start -->)(.*?)(<!-- videos:end -->)', re.S)
+LABELS = {'cover': 'Cover', 'original': 'Official Music Video'}
+DEFAULT_CREDITS = {'cover': 'covered by 多帕 Topa', 'original': '多帕 Topa'}
+
+
+def split_title(title: str, category: str):
+    """「【歌ってみた】曲名 / 原唱｜covered by 多帕 Topa #tag」→ (曲名 / 原唱, covered by 多帕 Topa)"""
+    text = re.sub(r'【[^】]*】', ' ', title)
+    text = re.sub(r'(\s+#\S+)+\s*$', '', text).strip()
+    if '｜' in text or '|' in text:
+        song, credit = re.split(r'\s*[｜|]\s*', text, maxsplit=1)
+    else:
+        match = re.match(r'(.*?)\s*/?\s*(covered by .+)$', text, re.I)
+        song, credit = match.groups() if match else (text, '')
+    return song.strip() or title, re.sub(r'\s+', ' ', credit).strip() or DEFAULT_CREDITS[category]
+
+
+def video_cards(songs) -> str:
+    cards = []
+    for index, song in enumerate(songs):
+        name, credit = split_title(song['title'], song['category'])
+        label = LABELS[song['category']]
+        video_id = html.escape(song['id'])
+        kind = 'cover 影片縮圖' if song['category'] == 'cover' else 'official music video 縮圖'
+        featured = ' featured' if index == 0 else ''
+        lazy = '' if index == 0 else ' loading="lazy"'
+        cards.append(
+            f'<a class="video-card{featured}" href="https://www.youtube.com/watch?v={video_id}" '
+            f'data-video-id="{video_id}" data-category="{song["category"]}" '
+            'target="_blank" rel="noopener noreferrer">'
+            f'<img src="{html.escape(song["thumbnail"])}" alt="{html.escape(name + " " + kind)}"{lazy} />'
+            f'<div><p>{label}</p><h3>{html.escape(name)}</h3><span>{html.escape(credit)}</span></div></a>'
+        )
+    return '\n'.join(cards)
+
+
+def render_videos(document: str, songs) -> str:
+    """Replace the hand-written cards with the synced list; pages without the markers are unchanged."""
+    if not songs:
+        return document
+    cards = video_cards(songs)
+    return VIDEO_BLOCK.sub(lambda m: f'{m[1]}\n{cards}\n{m[3]}', document, count=1)
+
+
+def build(main: Path, staging: Path, output: Path, songs=()) -> None:
     for source in (main, staging):
         for required in ('index.html', 'styles.css', 'assets'):
             if not (source / required).exists():
                 raise ValueError(f'Missing required website file: {source / required}')
 
-    main_html = version_assets((main / 'index.html').read_text(encoding='utf-8'), main)
-    preview_html = version_assets((staging / 'index.html').read_text(encoding='utf-8'), staging)
+    main_html = render_videos(version_assets((main / 'index.html').read_text(encoding='utf-8'), main), songs)
+    preview_html = render_videos(
+        version_assets((staging / 'index.html').read_text(encoding='utf-8'), staging), songs,
+    )
     if not re.search(r'</head\s*>', preview_html, re.I) or not re.search(r'<body\b[^>]*>', preview_html, re.I):
         raise ValueError('staging/index.html must contain head and body elements')
     preview_html = re.sub(
@@ -67,5 +115,11 @@ if __name__ == '__main__':
     parser.add_argument('main', type=Path)
     parser.add_argument('staging', type=Path)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--videos', type=Path, help='videos.json from fetch_videos.py (optional)')
     args = parser.parse_args()
-    build(args.main, args.staging, args.output)
+    songs = []
+    if args.videos and args.videos.exists():
+        songs = json.loads(args.videos.read_text(encoding='utf-8'))
+    else:
+        print('No synced video list: keeping the cards written in index.html.')
+    build(args.main, args.staging, args.output, songs)

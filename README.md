@@ -26,7 +26,8 @@ https://samoyedtopa1120-cmd.github.io/topa-homepage/
 
 - `index.html` - 網站主頁內容與社群分享中繼資料
 - `styles.css` - 藍白色響應式頁面樣式
-- `script.js` - 手機導覽、影音分類、相簿放大與二創展開
+- `script.js` - 手機導覽、影音分類與彈窗播放、相簿放大與二創展開
+- `.github/scripts/fetch_videos.py` - 每日從 YouTube 同步翻唱與原創曲（見 `docs/deployment.md`）
 - `docs/content-inventory.md` - 改版前完整文字、連結與素材摘錄
 - `docs/original-content.json` - 改版前結構化內容清單
 - `docs/redesign-notes.md` - 設計、文案改寫及驗證紀錄
