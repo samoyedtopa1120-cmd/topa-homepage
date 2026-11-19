@@ -96,7 +96,9 @@ if (typeof videoDialog.showModal === 'function') {
     youtube.target = '_blank';
     youtube.rel = 'noopener noreferrer';
     youtube.textContent = '在 YouTube 觀看 ↗';
-    videoCaption.replaceChildren(`${title} · ${link.querySelector('span').textContent.trim()}　`, youtube);
+    const released = link.querySelector('time');
+    const details = [title, link.querySelector('span').textContent.trim(), released && released.textContent.trim()];
+    videoCaption.replaceChildren(`${details.filter(Boolean).join(' · ')}　`, youtube);
     videoDialog.showModal();
     document.body.classList.add('modal-open');
   });

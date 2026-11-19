@@ -5,7 +5,10 @@ import html
 import json
 import re
 import shutil
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+TAIWAN = timezone(timedelta(hours=8))
 
 
 def version_assets(document: str, source: Path) -> str:
@@ -40,6 +43,18 @@ def split_title(title: str, category: str):
     return song.strip() or title, re.sub(r'\s+', ' ', credit).strip() or DEFAULT_CREDITS[category]
 
 
+def published_date(published: str):
+    """YouTube gives UTC; the card shows the Taiwan date, e.g. ('2026-10-25', '2026.10.25')."""
+    try:
+        moment = datetime.fromisoformat(published.replace('Z', '+00:00'))
+    except ValueError:
+        return None
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=timezone.utc)
+    local = moment.astimezone(TAIWAN)
+    return local.strftime('%Y-%m-%d'), local.strftime('%Y.%m.%d')
+
+
 def video_cards(songs) -> str:
     cards = []
     for index, song in enumerate(songs):
@@ -49,6 +64,9 @@ def video_cards(songs) -> str:
         kind = 'cover 影片縮圖' if song['category'] == 'cover' else 'official music video 縮圖'
         featured = ' featured' if index == 0 else ''
         lazy = '' if index == 0 else ' loading="lazy"'
+        released = published_date(song.get('published', ''))
+        if released:
+            label += f' · <time datetime="{released[0]}">{released[1]}</time>'
         cards.append(
             f'<a class="video-card{featured}" href="https://www.youtube.com/watch?v={video_id}" '
             f'data-video-id="{video_id}" data-category="{song["category"]}" '

@@ -96,12 +96,15 @@ class BuildPagesTests(unittest.TestCase):
                          ('冬天．我們不說再見', '多帕 Topa'))
         page = '<div><!-- videos:start --><a>old</a><!-- videos:end --></div>'
         songs = [{'id': 'abcdefghijk', 'title': '【歌ってみた】A&B / C｜covered by 多帕 Topa',
-                  'category': 'cover', 'thumbnail': 'https://i.ytimg.com/vi/abcdefghijk/hq.jpg'}]
+                  'category': 'cover', 'thumbnail': 'https://i.ytimg.com/vi/abcdefghijk/hq.jpg',
+                  'published': '2026-10-25T17:00:00Z'}]
         rendered = render_videos(page, songs)
         self.assertNotIn('old', rendered)
         self.assertIn('class="video-card featured"', rendered)
         self.assertIn('data-video-id="abcdefghijk"', rendered)
         self.assertIn('<h3>A&amp;B / C</h3>', rendered)
+        # 17:00 UTC is already the next day in Taiwan.
+        self.assertIn('<p>Cover · <time datetime="2026-10-26">2026.10.26</time></p>', rendered)
         self.assertEqual(render_videos(page, []), page, 'No synced list keeps the written cards')
         self.assertEqual(render_videos('<p>no markers</p>', songs), '<p>no markers</p>')
 

@@ -502,6 +502,9 @@ a,button {
 .lore-section h2 {
   font-size:25px;
 }
+.lore-section .section-head .text-link {
+  margin-left:auto;
+}
 .lore-grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
