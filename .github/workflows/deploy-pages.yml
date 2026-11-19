@@ -3,6 +3,9 @@ name: Deploy main and staging to Pages
 on:
   push:
     branches: [main, staging]
+  # Daily at 06:00 Taiwan time: pick up new covers and original songs from YouTube.
+  schedule:
+    - cron: '0 22 * * *'
   workflow_dispatch:
 
 permissions:
@@ -45,8 +48,15 @@ jobs:
       - name: Test website assembly
         run: python3 -B .github/scripts/test_build_pages.py
 
+      - name: Fetch covers and original songs from YouTube
+        # A YouTube outage or quota problem must not block deployment: the cards in index.html stay.
+        continue-on-error: true
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python3 -B .github/scripts/fetch_videos.py videos.json
+
       - name: Assemble both websites
-        run: python3 -B .github/scripts/build_pages.py sources/main sources/staging _site
+        run: python3 -B .github/scripts/build_pages.py sources/main sources/staging _site --videos videos.json
 
       - name: Upload combined website
         uses: actions/upload-pages-artifact@v4

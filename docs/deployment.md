@@ -28,3 +28,16 @@ python3 -B .github/scripts/test_build_pages.py
 打包程式會為 styles.css 和 script.js 加上各自內容的 SHA-256 前 12 碼，例如 styles.css?v=c8faafeb53ed。檔案內容改變，瀏覽器便會請求新 URL；兩個分支分別計算。這只改變部署產物中的引用，不改動版面或資源內容。
 
 如果 Pages Source 還是「Deploy from a branch」，合併 main 時會同時觸發舊的 pages-build-deployment 和雙版本 Actions。後完成的舊部署會覆蓋完整網站，造成 /staging/ 消失。倉庫擁有者必須將 Source 改成 GitHub Actions；重新執行雙版本 Actions 只能暫時恢復預覽站，不能取代這項設定。
+
+## YouTube 翻唱與原創曲每日同步
+
+部署時會由 `.github/scripts/fetch_videos.py` 讀取頻道「影片」分頁（YouTube 的 `UULF…` 清單，不含 Shorts 和直播），挑出作品後交給打包程式，替換 index.html 中 `<!-- videos:start -->` 與 `<!-- videos:end -->` 之間的卡片：
+
+- 標題含「歌ってみた」→ 翻唱（Cover）
+- 標題含「Official Music Video」（也接受 Offical 拼法）→ 原創・合作
+
+除了推送觸發，工作流程每天台灣時間 06:00 會自動執行一次。排程只會從預設分支 main 的工作流程觸發，所以這些改動合併到 main 後才會開始每天同步。
+
+API 金鑰存放在倉庫的 Settings → Secrets and variables → Actions，名稱為 `YOUTUBE_API_KEY`。金鑰只需要開放 YouTube Data API v3，每天約使用 1 點配額（上限 10,000）。沒有設定金鑰時會改讀公開 RSS，只能取得最新 15 部影片。若 YouTube 暫時無法連線，部署仍會繼續，頁面沿用 index.html 裡手寫的卡片。
+
+在頁面上點卡片會用 youtube-nocookie.com 的 iframe 在彈出視窗內播放；按住 Ctrl／⌘ 點擊仍會開新分頁到 YouTube。

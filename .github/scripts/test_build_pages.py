@@ -79,6 +79,32 @@ class BuildPagesTests(unittest.TestCase):
             self.assertEqual(changed[1], first[1], 'Production changes must not alter preview URLs')
             self.assertEqual((root / 'main/index.html').read_text(), original_html)
 
+    def test_youtube_titles_become_cards(self):
+        sys.path.insert(0, str(SCRIPT.parent))
+        from build_pages import render_videos, split_title
+        from fetch_videos import classify
+        self.assertEqual(classify('【歌ってみた】残響散歌 / Aimer｜covered by 多帕 Topa'), 'cover')
+        self.assertEqual(classify('【Official Music Video】負け犬同盟｜多帕 Topa x 魷魷 Yuyu'), 'original')
+        self.assertEqual(classify('【Offical Music Video】新曲｜多帕 Topa'), 'original')
+        self.assertIsNone(classify('【歌回剪輯】從前說 / 小阿七｜covered by 多帕'))
+        self.assertEqual(
+            split_title('【歌ってみた】Happy Halloween/Junky feat.鏡音リン｜covered by 多帕 Topa   #vtuber #歌ってみた', 'cover'),
+            ('Happy Halloween/Junky feat.鏡音リン', 'covered by 多帕 Topa'))
+        self.assertEqual(split_title('【歌ってみた】食虫植物 / covered by 多帕 Topa', 'cover'),
+                         ('食虫植物', 'covered by 多帕 Topa'))
+        self.assertEqual(split_title('【Official Music Video】冬天．我們不說再見｜多帕 Topa', 'original'),
+                         ('冬天．我們不說再見', '多帕 Topa'))
+        page = '<div><!-- videos:start --><a>old</a><!-- videos:end --></div>'
+        songs = [{'id': 'abcdefghijk', 'title': '【歌ってみた】A&B / C｜covered by 多帕 Topa',
+                  'category': 'cover', 'thumbnail': 'https://i.ytimg.com/vi/abcdefghijk/hq.jpg'}]
+        rendered = render_videos(page, songs)
+        self.assertNotIn('old', rendered)
+        self.assertIn('class="video-card featured"', rendered)
+        self.assertIn('data-video-id="abcdefghijk"', rendered)
+        self.assertIn('<h3>A&amp;B / C</h3>', rendered)
+        self.assertEqual(render_videos(page, []), page, 'No synced list keeps the written cards')
+        self.assertEqual(render_videos('<p>no markers</p>', songs), '<p>no markers</p>')
+
     def test_missing_branch_fails_before_creating_output(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

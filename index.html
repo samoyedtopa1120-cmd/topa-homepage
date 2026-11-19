@@ -192,6 +192,7 @@
           <h2>今天想聽哪一首？</h2>
         </div>
         <div class="media-toolbar" hidden><div class="filters" role="group" aria-label="影音分類"><button type="button" data-filter="all" aria-pressed="true">全部作品</button><button type="button" data-filter="cover" aria-pressed="false">翻唱</button><button type="button" data-filter="original" aria-pressed="false">原創・合作</button></div><a class="text-link" href="https://youtube.com/playlist?list=PLYw3W-AQqDiNjssrl4P_W_wYsGhFq0Vyr" target="_blank" rel="noopener noreferrer">多帕唱過的歌 ↗</a></div><div class="video-grid">
+<!-- videos:start -->
           <a class="video-card featured" href="https://www.youtube.com/watch?v=0lAFji6ZHgo" target="_blank" rel="noopener noreferrer">
             <img src="./assets/rabbit-hole.jpg" alt="ラビットホール cover 影片縮圖" />
             <div>
@@ -232,7 +233,9 @@
               <span>covered by 多帕 Topa</span>
             </div>
           </a>
+<!-- videos:end -->
         </div>
+        <div class="video-more" hidden><button class="button secondary" id="video-toggle" type="button" aria-expanded="false">看全部作品 <span aria-hidden="true">＋</span></button></div>
       </section>
 <section id="visuals" class="section visuals-section">
         <div class="section-head">
@@ -603,4 +606,5 @@
         </div>
       </section></main><footer class="site-footer"><a class="footer-brand" href="#top">Topa Ch. 多帕</a><p class="footer-bye">今天也謝謝你來玩。パイパイ！</p><p>主視覺繪製：Rocks 老師。粉絲創作的作者與委託人標示於各作品下方。</p><div class="footer-bottom"><span>圖片來源：公開頻道、個人檔案、官方主視覺與粉絲二創。正式上線前請確認使用授權。</span><a href="#top">回到頂端 ↑</a></div></footer>
 <dialog id="image-dialog" aria-labelledby="lightbox-caption"><button class="lightbox-close" type="button" aria-label="關閉圖片">×</button><img id="lightbox-image" alt="" /><p id="lightbox-caption"></p></dialog>
+<dialog id="video-dialog" aria-labelledby="video-dialog-title"><button class="lightbox-close" type="button" aria-label="關閉影片">×</button><div class="video-frame"></div><p id="video-dialog-title"></p></dialog>
 </body></html>
