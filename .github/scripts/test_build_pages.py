@@ -24,6 +24,8 @@ class BuildPagesTests(unittest.TestCase):
                 (source / 'styles.css').write_text(f'/* {branch} */')
                 (source / 'private-notes.md').write_text('not a website asset')
             (root / 'staging/script.js').write_text('// preview interaction')
+            (root / 'main/donate').mkdir()
+            (root / 'main/donate/index.html').write_text('<html>donate</html>')
             result = subprocess.run(
                 [sys.executable, str(SCRIPT), str(root / 'main'),
                  str(root / 'staging'), str(root / 'site')],
@@ -37,6 +39,8 @@ class BuildPagesTests(unittest.TestCase):
             self.assertTrue((site / 'staging/script.js').exists())
             self.assertFalse((site / 'script.js').exists())
             self.assertFalse((site / 'private-notes.md').exists())
+            self.assertEqual((site / 'donate/index.html').read_text(), '<html>donate</html>')
+            self.assertFalse((site / 'staging/donate').exists())
             preview = (site / 'staging/index.html').read_text()
             self.assertIn('noindex', preview)
             self.assertIn('Staging 預覽版', preview)

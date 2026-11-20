@@ -21,6 +21,7 @@ https://samoyedtopa1120-cmd.github.io/topa-homepage/
 - [綠界贊助](https://payment.ecpay.com.tw/Broadcaster/Donate/85C7382313C1128C863B7826B020375C)
 - [歐付寶贊助](https://payment.opay.tw/Broadcaster/Donate/44319C02C2A8F1C43497ADE37872A1DE)
 - [嗨幣贊助](https://deerdonate.herokuapp.com/donation/%E5%A4%9A%E5%B8%95)
+- [贊助頁 /donate](https://samoyedtopa1120-cmd.github.io/topa-homepage/donate/)：只有上面三個贊助按鈕的單頁，原始檔在 `donate/index.html`
 
 ## 檔案說明
 

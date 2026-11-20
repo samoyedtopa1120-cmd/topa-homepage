@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="支持 Topa Ch. 多帕：綠界、歐付寶、山羌贊助連結。" />
+    <meta name="theme-color" content="#3585c9" />
+    <link rel="canonical" href="https://samoyedtopa1120-cmd.github.io/topa-homepage/donate/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Topa Ch. 多帕" />
+    <meta property="og:title" content="支持多帕 | Topa Ch. 多帕" />
+    <meta property="og:description" content="綠界、歐付寶、山羌贊助連結。" />
+    <meta property="og:url" content="https://samoyedtopa1120-cmd.github.io/topa-homepage/donate/" />
+    <meta property="og:image" content="https://samoyedtopa1120-cmd.github.io/topa-homepage/assets/topa-avatar.jpg" />
+    <meta name="twitter:card" content="summary" />
+    <title>支持多帕 | Topa Ch. 多帕</title>
+    <link rel="icon" href="../assets/topa-avatar.jpg" type="image/jpeg" />
+    <style>
+      :root {
+        --blue: #287bb9;
+        --deep: #235c85;
+        --ink: #294b63;
+        --muted: #597587;
+        --pale: #eff8fd;
+        --line: #d6e9f5;
+        --white: #fff;
+        --font: 'Nunito', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 32px 16px;
+        background: radial-gradient(circle at 50% 0%, #dff0fb 0, var(--pale) 55%, var(--white) 100%);
+        color: var(--ink);
+        font: 16px/1.7 var(--font);
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+      .avatar {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        border: 4px solid var(--white);
+        box-shadow: 0 6px 24px #287bb92e;
+        object-fit: cover;
+      }
+      h1 {
+        margin: 16px 0 4px;
+        color: var(--deep);
+        font-size: 1.6rem;
+        letter-spacing: .04em;
+      }
+      .lead {
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: .95rem;
+      }
+      .lead span { display: inline-block; }
+      .buttons {
+        display: grid;
+        gap: 14px;
+      }
+      .buttons a {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 20px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--ink);
+        text-decoration: none;
+        box-shadow: 0 2px 10px #235c8512;
+        transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      }
+      .buttons a:hover {
+        transform: translateY(-2px);
+        border-color: var(--blue);
+        box-shadow: 0 8px 22px #287bb926;
+      }
+      .buttons a:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+      .buttons svg {
+        flex: none;
+        width: 36px;
+        height: 36px;
+        padding: 7px;
+        border-radius: 50%;
+        background: var(--pale);
+        fill: none;
+        stroke: var(--blue);
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .label {
+        flex: 1;
+        text-align: left;
+        line-height: 1.3;
+      }
+      .label strong {
+        display: block;
+        font-size: 1.1rem;
+        color: var(--deep);
+      }
+      .label span {
+        font-size: .8rem;
+        color: var(--muted);
+        letter-spacing: .03em;
+      }
+      .arrow {
+        color: var(--blue);
+        font-size: 1.1rem;
+      }
+      .home {
+        display: inline-block;
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: .9rem;
+        text-decoration: none;
+      }
+      .home:hover { color: var(--deep); text-decoration: underline; }
+      @media (prefers-reduced-motion: reduce) {
+        .buttons a { transition: none; }
+        .buttons a:hover { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="icon-donate" viewBox="0 0 24 24">
+        <path d="M12 18.6S5.5 15 5.5 10.4A3.4 3.4 0 0 1 12 9a3.4 3.4 0 0 1 6.5 1.4c0 4.6-6.5 8.2-6.5 8.2Z" />
+        <path d="M12 9v6" />
+        <path d="M9.8 12h4.4" />
+      </symbol>
+    </svg>
+    <main>
+      <img class="avatar" src="../assets/topa-avatar.jpg" alt="多帕的頭像" width="112" height="112" />
+      <h1>支持多帕</h1>
+      <p class="lead"><span>謝謝你願意餵狗狗！</span><span>選一個方便的方式就好(っ´ω`c)</span></p>
+      <nav class="buttons" aria-label="贊助連結">
+        <a href="https://payment.ecpay.com.tw/Broadcaster/Donate/85C7382313C1128C863B7826B020375C" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true"><use href="#icon-donate"></use></svg>
+          <span class="label"><strong>綠界</strong><span>ECPay</span></span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://payment.opay.tw/Broadcaster/Donate/44319C02C2A8F1C43497ADE37872A1DE" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true"><use href="#icon-donate"></use></svg>
+          <span class="label"><strong>歐付寶</strong><span>O'Pay</span></span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://deerdonate.herokuapp.com/donation/%E5%A4%9A%E5%B8%95" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true"><use href="#icon-donate"></use></svg>
+          <span class="label"><strong>山羌</strong><span>Deer Donate</span></span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+      <a class="home" href="../">← 回到多帕的首頁</a>
+    </main>
+  </body>
+</html>

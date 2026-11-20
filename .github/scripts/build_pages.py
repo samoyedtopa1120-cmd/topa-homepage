@@ -9,6 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 TAIWAN = timezone(timedelta(hours=8))
+PAGES = ('donate',)
 
 
 def version_assets(document: str, source: Path) -> str:
@@ -123,6 +124,10 @@ def build(main: Path, staging: Path, output: Path, songs=()) -> None:
             if file.is_file() and (file.suffix in ('.html', '.css', '.js', '.ico') or file.name == 'robots.txt'):
                 shutil.copy2(file, destination / file.name)
         shutil.copytree(source / 'assets', destination / 'assets')
+        # Extra standalone pages, each served from its own folder (e.g. /donate/).
+        for page in PAGES:
+            if (source / page / 'index.html').is_file():
+                shutil.copytree(source / page, destination / page)
     (output / 'index.html').write_text(main_html, encoding='utf-8')
     (output / 'staging/index.html').write_text(preview_html, encoding='utf-8')
     (output / '.nojekyll').touch()
