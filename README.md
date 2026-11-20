@@ -29,6 +29,8 @@ https://samoyedtopa1120-cmd.github.io/topa-homepage/
 - `styles.css` - 藍白色響應式頁面樣式
 - `script.js` - 手機導覽、影音分類與彈窗播放、相簿放大與二創展開
 - `i18n.js` - 英文、日文翻譯與語言切換（中文直接寫在 `index.html`）
+- `motion.js` - 純裝飾動態：捲動淡入、首頁飄浮小物、頭像對話泡泡、跑馬燈與點擊愛心（系統開啟「減少動態效果」時自動關閉）
+- `donate/index.html` - 贊助單頁 `/donate/`
 - `.github/scripts/fetch_videos.py` - 每日從 YouTube 同步翻唱與原創曲（見 `docs/deployment.md`）
 - `docs/content-inventory.md` - 改版前完整文字、連結與素材摘錄
 - `docs/original-content.json` - 改版前結構化內容清單

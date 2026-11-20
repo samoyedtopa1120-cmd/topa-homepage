@@ -13,10 +13,10 @@ PAGES = ('donate',)
 
 
 def version_assets(document: str, source: Path) -> str:
-    """A changed CSS/JS file (styles.css, script.js, i18n.js) gets a new URL instead of reusing a cached response."""
+    """A changed CSS/JS file (styles.css, script.js, i18n.js, motion.js) gets a new URL instead of reusing a cached response."""
     pattern = (
         r"(?P<attribute>(?:href|src)\s*=\s*)(?P<quote>[\"'])"
-        r"(?P<path>(?:\./)?(?:styles\.css|script\.js|i18n\.js))"
+        r"(?P<path>(?:\./)?(?:styles\.css|script\.js|i18n\.js|motion\.js))"
         r"(?:\?[^\"']*)?(?P=quote)"
     )
     def replace(match):
