@@ -18,153 +18,608 @@
     <style>
       :root {
         --blue: #287bb9;
+        --sky: #5aaee6;
         --deep: #235c85;
         --ink: #294b63;
         --muted: #597587;
         --pale: #eff8fd;
         --line: #d6e9f5;
         --white: #fff;
+        --pink: #ff8fb1;
         --font: 'Nunito', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+        --bounce: cubic-bezier(.34, 1.56, .64, 1);
       }
       * { box-sizing: border-box; }
-      html, body { height: 100%; }
+      html, body { min-height: 100%; }
       body {
+        position: relative;
         margin: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
         display: grid;
         place-items: center;
-        padding: 32px 16px;
-        background: radial-gradient(circle at 50% 0%, #dff0fb 0, var(--pale) 55%, var(--white) 100%);
+        padding: 40px 16px;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 15% 10%, #d7edfb 0, transparent 40%),
+          radial-gradient(circle at 90% 85%, #ffe3ec 0, transparent 38%),
+          linear-gradient(180deg, #f3faff 0%, #e6f3fc 100%);
         color: var(--ink);
         font: 16px/1.7 var(--font);
         -webkit-font-smoothing: antialiased;
       }
+
+      /* Soft blobs drifting behind everything */
+      .blob {
+        position: fixed;
+        z-index: 0;
+        border-radius: 50%;
+        filter: blur(48px);
+        opacity: .55;
+        pointer-events: none;
+        animation: drift 18s ease-in-out infinite alternate;
+      }
+      .blob.one { width: 340px; height: 340px; top: -90px; left: -80px; background: #bfe1f8; }
+      .blob.two { width: 300px; height: 300px; bottom: -100px; right: -70px; background: #ffd3e1; animation-duration: 22s; animation-delay: -6s; }
+      .blob.three { width: 220px; height: 220px; top: 45%; left: 60%; background: #d9f2e6; animation-duration: 26s; animation-delay: -12s; }
+      @keyframes drift {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(40px, 30px) scale(1.12); }
+        100% { transform: translate(-30px, 50px) scale(.95); }
+      }
+
+      /* Paws, hearts and snowflakes floating up */
+      .sky {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .floaty {
+        position: absolute;
+        bottom: -40px;
+        color: var(--sky);
+        opacity: 0;
+        animation: rise linear infinite;
+      }
+      .floaty svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+      @keyframes rise {
+        0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+        10% { opacity: var(--alpha, .35); }
+        50% { transform: translate(var(--sway, 30px), -55vh) rotate(var(--spin, 90deg)); }
+        90% { opacity: var(--alpha, .35); }
+        100% { transform: translate(0, -110vh) rotate(calc(var(--spin, 90deg) * 2)); opacity: 0; }
+      }
+
       main {
+        position: relative;
+        z-index: 1;
         width: 100%;
-        max-width: 400px;
+        max-width: 420px;
         text-align: center;
       }
-      .avatar {
-        width: 112px;
-        height: 112px;
+
+      /* Avatar */
+      .avatar-wrap {
+        position: relative;
+        width: 136px;
+        height: 136px;
+        margin: 0 auto;
+        animation: pop-in .8s var(--bounce) both;
+      }
+      .avatar-btn {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 0;
         border-radius: 50%;
-        border: 4px solid var(--white);
-        box-shadow: 0 6px 24px #287bb92e;
+        background: none;
+        cursor: pointer;
+        animation: float 4s ease-in-out infinite;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .avatar-btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 6px; }
+      .ring {
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, var(--sky), var(--pink), #9be3c1, #ffd27a, var(--sky));
+        animation: spin 8s linear infinite;
+      }
+      .ring::after {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        border-radius: 50%;
+        background: var(--white);
+      }
+      .avatar {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
         object-fit: cover;
+        box-shadow: 0 10px 30px #287bb933;
+      }
+      .avatar-btn.wiggle .avatar { animation: wiggle .6s ease; }
+      .bubble {
+        position: absolute;
+        top: -6px;
+        left: calc(100% - 18px);
+        padding: 6px 12px;
+        border-radius: 16px 16px 16px 4px;
+        background: var(--white);
+        color: var(--deep);
+        font-weight: 800;
+        font-size: .9rem;
+        white-space: nowrap;
+        box-shadow: 0 6px 18px #235c8526;
+        transform-origin: 0 100%;
+        transform: scale(0) rotate(-12deg);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .35s var(--bounce), opacity .2s;
+      }
+      .bubble.show { transform: scale(1) rotate(0); opacity: 1; }
+      @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes wiggle {
+        0%, 100% { transform: rotate(0); }
+        20% { transform: rotate(-10deg) scale(1.05); }
+        40% { transform: rotate(8deg) scale(1.05); }
+        60% { transform: rotate(-5deg); }
+        80% { transform: rotate(3deg); }
+      }
+      @keyframes pop-in {
+        0% { transform: scale(.3); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      /* Heading */
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin: 26px 0 6px;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: #ffffffb3;
+        color: var(--blue);
+        font-size: .72rem;
+        font-weight: 800;
+        letter-spacing: .18em;
+        box-shadow: 0 2px 10px #287bb914;
+        animation: fade-up .6s .25s ease both;
+      }
+      .chip svg { width: 13px; height: 13px; fill: var(--pink); animation: beat 1.4s ease-in-out infinite; }
+      @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        15% { transform: scale(1.3); }
+        30% { transform: scale(1); }
+        45% { transform: scale(1.2); }
       }
       h1 {
-        margin: 16px 0 4px;
+        margin: 0;
         color: var(--deep);
-        font-size: 1.6rem;
-        letter-spacing: .04em;
+        font-size: 2rem;
+        line-height: 1.3;
+        letter-spacing: .06em;
+      }
+      h1 span {
+        display: inline-block;
+        animation: hop .7s var(--bounce) both, wave 3.2s ease-in-out infinite;
+        animation-delay: calc(.35s + var(--i) * .08s), calc(1.6s + var(--i) * .12s);
+      }
+      @keyframes hop {
+        0% { transform: translateY(24px) scale(.6); opacity: 0; }
+        100% { transform: none; opacity: 1; }
+      }
+      @keyframes wave {
+        0%, 70%, 100% { transform: translateY(0); }
+        80% { transform: translateY(-7px); }
+        90% { transform: translateY(1px); }
       }
       .lead {
-        margin: 0 0 28px;
+        margin: 8px 0 30px;
         color: var(--muted);
         font-size: .95rem;
+        animation: fade-up .6s .7s ease both;
       }
       .lead span { display: inline-block; }
+      @keyframes fade-up {
+        0% { transform: translateY(12px); opacity: 0; }
+        100% { transform: none; opacity: 1; }
+      }
+
+      /* Donate buttons */
       .buttons {
         display: grid;
-        gap: 14px;
+        gap: 16px;
+        perspective: 800px;
       }
-      .buttons a {
+      .donate {
+        --rx: 0deg;
+        --ry: 0deg;
+        --mx: 50%;
+        --my: 50%;
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 14px;
-        padding: 16px 20px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: var(--white);
+        gap: 16px;
+        padding: 14px 20px 14px 14px;
+        overflow: hidden;
+        border: 2px solid var(--white);
+        border-radius: 26px;
+        background: #ffffffe6;
         color: var(--ink);
         text-decoration: none;
-        box-shadow: 0 2px 10px #235c8512;
-        transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+        box-shadow: 0 4px 16px #235c8514, 0 1px 0 #fff inset;
+        transform: rotateX(var(--rx)) rotateY(var(--ry));
+        transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        animation: slide-in .7s var(--bounce) backwards;
+        animation-delay: calc(.85s + var(--i) * .12s);
+        -webkit-tap-highlight-color: transparent;
       }
-      .buttons a:hover {
-        transform: translateY(-2px);
-        border-color: var(--blue);
-        box-shadow: 0 8px 22px #287bb926;
+      @keyframes slide-in {
+        0% { transform: translateY(30px) scale(.9); opacity: 0; }
+        100% { transform: none; opacity: 1; }
       }
-      .buttons a:focus-visible {
-        outline: 3px solid var(--blue);
-        outline-offset: 3px;
+      /* Glow that follows the pointer */
+      .donate::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(180px circle at var(--mx) var(--my), var(--tint), transparent 70%);
+        opacity: 0;
+        transition: opacity .25s;
+        pointer-events: none;
       }
-      .buttons svg {
+      /* Shine sweep */
+      .donate::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -60%;
+        width: 40%;
+        background: linear-gradient(105deg, transparent, #ffffffcc, transparent);
+        transform: skewX(-18deg);
+        pointer-events: none;
+      }
+      .donate:hover, .donate:focus-visible {
+        border-color: var(--accent);
+        box-shadow: 0 14px 30px -8px var(--shadow), 0 1px 0 #fff inset;
+        transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-3px);
+      }
+      .donate:hover::before, .donate:focus-visible::before { opacity: 1; }
+      .donate:hover::after, .donate:focus-visible::after { animation: shine .8s ease; }
+      .donate:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+      .donate:active { transform: scale(.97); transition-duration: .08s; }
+      @keyframes shine { to { left: 130%; } }
+
+      .icon {
+        position: relative;
         flex: none;
-        width: 36px;
-        height: 36px;
-        padding: 7px;
-        border-radius: 50%;
-        background: var(--pale);
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 42% 58% 55% 45% / 50% 45% 55% 50%;
+        background: var(--tint);
+        color: var(--accent);
+        animation: morph 7s ease-in-out infinite;
+        animation-delay: calc(var(--i) * -2s);
+      }
+      .icon svg {
+        width: 34px;
+        height: 34px;
         fill: none;
-        stroke: var(--blue);
-        stroke-width: 1.8;
+        stroke: currentColor;
+        stroke-width: 1.7;
         stroke-linecap: round;
         stroke-linejoin: round;
+        overflow: visible;
       }
+      .icon .solid { fill: currentColor; stroke: none; }
+      .icon .soft { fill: var(--white); }
+      .icon .blush { fill: #ff9db8; stroke: none; }
+      .donate:hover .icon svg, .donate:focus-visible .icon svg { animation: jiggle .7s ease; }
+      @keyframes morph {
+        0%, 100% { border-radius: 42% 58% 55% 45% / 50% 45% 55% 50%; }
+        33% { border-radius: 58% 42% 45% 55% / 45% 58% 42% 55%; }
+        66% { border-radius: 50% 50% 60% 40% / 58% 42% 58% 42%; }
+      }
+      @keyframes jiggle {
+        0% { transform: rotate(0) scale(1); }
+        25% { transform: rotate(-12deg) scale(1.15); }
+        50% { transform: rotate(9deg) scale(1.1); }
+        75% { transform: rotate(-4deg) scale(1.05); }
+        100% { transform: rotate(0) scale(1); }
+      }
+      /* Per-icon extra motion on hover */
+      .donate:hover .coin, .donate:focus-visible .coin { animation: coin-hop .7s var(--bounce); }
+      .donate:hover .coin.two, .donate:focus-visible .coin.two { animation-delay: .1s; }
+      @keyframes coin-hop { 40% { transform: translateY(-4px); } }
+      .donate:hover .ear, .donate:focus-visible .ear { animation: ear-flick .5s ease 2; }
+      .ear { transform-box: fill-box; }
+      .ear.left { transform-origin: 100% 30%; }
+      .ear.right { transform-origin: 0 30%; }
+      @keyframes ear-flick { 50% { transform: rotate(var(--flick)); } }
+      .ear.left { --flick: 18deg; }
+      .ear.right { --flick: -18deg; }
+      .donate:hover .card-heart, .donate:focus-visible .card-heart { animation: beat 1s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+
       .label {
+        position: relative;
         flex: 1;
         text-align: left;
         line-height: 1.3;
       }
       .label strong {
         display: block;
-        font-size: 1.1rem;
         color: var(--deep);
+        font-size: 1.15rem;
+        letter-spacing: .04em;
       }
       .label span {
-        font-size: .8rem;
         color: var(--muted);
-        letter-spacing: .03em;
+        font-size: .8rem;
+        letter-spacing: .04em;
       }
-      .arrow {
-        color: var(--blue);
-        font-size: 1.1rem;
+      .go {
+        position: relative;
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--tint);
+        color: var(--accent);
+        transition: transform .3s var(--bounce), background .25s, color .25s;
       }
+      .go svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+      .donate:hover .go, .donate:focus-visible .go { transform: translateX(4px) rotate(-45deg); background: var(--accent); color: var(--white); }
+
+      .ecpay { --i: 0; --accent: #2a9d68; --tint: #dcf5e8; --shadow: #2a9d6866; }
+      .opay { --i: 1; --accent: #e9772f; --tint: #ffe9da; --shadow: #e9772f66; }
+      .deer { --i: 2; --accent: #a8682e; --tint: #f6e8d8; --shadow: #a8682e66; }
+
       .home {
-        display: inline-block;
-        margin-top: 28px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 30px;
+        padding: 6px 14px;
+        border-radius: 999px;
         color: var(--muted);
         font-size: .9rem;
         text-decoration: none;
+        transition: color .2s, background .2s;
+        animation: fade-up .6s 1.4s ease both;
       }
-      .home:hover { color: var(--deep); text-decoration: underline; }
+      .home svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--bounce); }
+      .home:hover, .home:focus-visible { color: var(--deep); background: #ffffffb3; }
+      .home:hover svg, .home:focus-visible svg { transform: translateX(-4px); }
+      .home:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+      /* Click bursts */
+      .particle {
+        position: fixed;
+        z-index: 10;
+        width: 16px;
+        height: 16px;
+        margin: -8px 0 0 -8px;
+        pointer-events: none;
+      }
+      .particle svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+
+      @media (max-width: 380px) {
+        h1 { font-size: 1.75rem; }
+        .donate { gap: 12px; padding: 12px 16px 12px 12px; }
+        .icon { width: 50px; height: 50px; }
+        .icon svg { width: 30px; height: 30px; }
+      }
       @media (prefers-reduced-motion: reduce) {
-        .buttons a { transition: none; }
-        .buttons a:hover { transform: none; }
+        *, *::before, *::after {
+          animation-duration: .01ms !important;
+          animation-iteration-count: 1 !important;
+          animation-delay: 0s !important;
+          transition-duration: .01ms !important;
+        }
+        .sky, .blob { display: none; }
       }
     </style>
   </head>
   <body>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-      <symbol id="icon-donate" viewBox="0 0 24 24">
-        <path d="M12 18.6S5.5 15 5.5 10.4A3.4 3.4 0 0 1 12 9a3.4 3.4 0 0 1 6.5 1.4c0 4.6-6.5 8.2-6.5 8.2Z" />
-        <path d="M12 9v6" />
-        <path d="M9.8 12h4.4" />
-      </symbol>
+      <!-- Particles -->
+      <symbol id="p-heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.4-9.3-9.2C1.4 8.3 3.6 4.5 7.3 4.5c2 0 3.4 1.1 4.7 2.8 1.3-1.7 2.7-2.8 4.7-2.8 3.7 0 5.9 3.8 4.6 7.3C19.5 16.6 12 21 12 21Z"/></symbol>
+      <symbol id="p-paw" viewBox="0 0 24 24"><ellipse cx="5.2" cy="10" rx="2.3" ry="2.9" transform="rotate(-20 5.2 10)"/><ellipse cx="9.6" cy="5.6" rx="2.2" ry="2.9" transform="rotate(-6 9.6 5.6)"/><ellipse cx="14.6" cy="5.6" rx="2.2" ry="2.9" transform="rotate(6 14.6 5.6)"/><ellipse cx="19" cy="10" rx="2.3" ry="2.9" transform="rotate(20 19 10)"/><path d="M12 11c-3.3 0-6.6 3.6-6.6 6.6 0 2.4 1.9 3.2 3.6 2.8 1.2-.3 2-.8 3-.8s1.8.5 3 .8c1.7.4 3.6-.4 3.6-2.8 0-3-3.3-6.6-6.6-6.6Z"/></symbol>
+      <symbol id="p-flake" viewBox="0 0 24 24"><path d="M11 2h2v5.3l2.6-1.5 1 1.7L13 9.6v1.8l1.6-.9 3.6-2.1 1 1.7-3.6 2.1L14 13l1.6.9 3.6 2.1-1 1.7-3.6-2.1-1.6-.9v1.8l3.6 2.1-1 1.7-2.6-1.5V22h-2v-5.3l-2.6 1.5-1-1.7L11 14.4v-1.8l-1.6.9-3.6 2.1-1-1.7 3.6-2.1L10 11l-1.6-.9-3.6-2.1 1-1.7 3.6 2.1 1.6.9V7.4L7.4 5.3l1-1.7L11 5.1Z"/></symbol>
+      <symbol id="p-star" viewBox="0 0 24 24"><path d="M12 2.5c.6 4.8 2.7 6.9 7.5 7.5-4.8.6-6.9 2.7-7.5 7.5-.6-4.8-2.7-6.9-7.5-7.5 4.8-.6 6.9-2.7 7.5-7.5Z" transform="translate(0 2)"/></symbol>
     </svg>
+
+    <div class="blob one" aria-hidden="true"></div>
+    <div class="blob two" aria-hidden="true"></div>
+    <div class="blob three" aria-hidden="true"></div>
+    <div class="sky" aria-hidden="true"></div>
+
     <main>
-      <img class="avatar" src="../assets/topa-avatar.jpg" alt="多帕的頭像" width="112" height="112" />
-      <h1>支持多帕</h1>
+      <div class="avatar-wrap">
+        <button class="avatar-btn" type="button" aria-label="摸摸多帕">
+          <span class="ring" aria-hidden="true"></span>
+          <img class="avatar" src="../assets/topa-avatar.jpg" alt="" width="136" height="136" />
+        </button>
+        <span class="bubble" aria-live="polite"></span>
+      </div>
+
+      <div class="chip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#p-heart"></use></svg>SUPPORT TOPA
+      </div>
+      <h1 aria-label="支持多帕"><span style="--i:0" aria-hidden="true">支</span><span style="--i:1" aria-hidden="true">持</span><span style="--i:2" aria-hidden="true">多</span><span style="--i:3" aria-hidden="true">帕</span></h1>
       <p class="lead"><span>謝謝你願意餵狗狗！</span><span>選一個方便的方式就好(っ´ω`c)</span></p>
+
       <nav class="buttons" aria-label="贊助連結">
-        <a href="https://payment.ecpay.com.tw/Broadcaster/Donate/85C7382313C1128C863B7826B020375C" target="_blank" rel="noopener noreferrer">
-          <svg aria-hidden="true"><use href="#icon-donate"></use></svg>
+        <a class="donate ecpay" href="https://payment.ecpay.com.tw/Broadcaster/Donate/85C7382313C1128C863B7826B020375C" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true">
+            <!-- Card with a heart -->
+            <svg viewBox="0 0 24 24">
+              <rect class="soft" x="2.5" y="5" width="19" height="14" rx="3.2" />
+              <path d="M2.5 9.4h19" />
+              <path d="M5.6 15.6h3.6" />
+              <path class="card-heart solid" d="M16.4 17.4s-3-1.7-3-3.6a1.5 1.5 0 0 1 3-.5 1.5 1.5 0 0 1 3 .5c0 1.9-3 3.6-3 3.6Z" />
+            </svg>
+          </span>
           <span class="label"><strong>綠界</strong><span>ECPay</span></span>
-          <span class="arrow" aria-hidden="true">↗</span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
         </a>
-        <a href="https://payment.opay.tw/Broadcaster/Donate/44319C02C2A8F1C43497ADE37872A1DE" target="_blank" rel="noopener noreferrer">
-          <svg aria-hidden="true"><use href="#icon-donate"></use></svg>
+        <a class="donate opay" href="https://payment.opay.tw/Broadcaster/Donate/44319C02C2A8F1C43497ADE37872A1DE" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true">
+            <!-- Wallet with coins popping out -->
+            <svg viewBox="0 0 24 24">
+              <g class="coin"><circle class="soft" cx="9" cy="4.6" r="2.6" /><path d="M9 3.6v2" /></g>
+              <g class="coin two"><circle class="soft" cx="14.6" cy="5.4" r="1.9" /></g>
+              <rect class="soft" x="2.8" y="7.8" width="17.4" height="12.4" rx="3" />
+              <path d="M20.2 11.4h-3.6a2.1 2.1 0 0 0 0 4.2h3.6" />
+              <circle class="solid" cx="16.7" cy="13.5" r=".9" />
+            </svg>
+          </span>
           <span class="label"><strong>歐付寶</strong><span>O'Pay</span></span>
-          <span class="arrow" aria-hidden="true">↗</span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
         </a>
-        <a href="https://deerdonate.herokuapp.com/donation/%E5%A4%9A%E5%B8%95" target="_blank" rel="noopener noreferrer">
-          <svg aria-hidden="true"><use href="#icon-donate"></use></svg>
+        <a class="donate deer" href="https://deerdonate.herokuapp.com/donation/%E5%A4%9A%E5%B8%95" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true">
+            <!-- A little muntjac (山羌) -->
+            <svg viewBox="0 0 24 24">
+              <path d="M9.6 7.4c-.5-1.4-.7-2.7-.5-4.1M9.1 3.3c-.9.2-1.6.7-2 1.5M14.4 7.4c.5-1.4.7-2.7.5-4.1M14.9 3.3c.9.2 1.6.7 2 1.5" />
+              <path class="ear left soft" d="M8 9.6 3.4 8.4c.3 2.3 1.9 3.7 4.4 3.8Z" />
+              <path class="ear right soft" d="M16 9.6l4.6-1.2c-.3 2.3-1.9 3.7-4.4 3.8Z" />
+              <path class="soft" d="M7.6 10.4c0-2.1 2-3.4 4.4-3.4s4.4 1.3 4.4 3.4c0 3.7-2 8.6-4.4 8.6s-4.4-4.9-4.4-8.6Z" />
+              <circle class="solid" cx="10.1" cy="12" r="1" />
+              <circle class="solid" cx="13.9" cy="12" r="1" />
+              <ellipse class="blush" cx="9.2" cy="14.3" rx=".95" ry=".55" />
+              <ellipse class="blush" cx="14.8" cy="14.3" rx=".95" ry=".55" />
+              <ellipse class="solid" cx="12" cy="16.9" rx="1.05" ry=".8" />
+            </svg>
+          </span>
           <span class="label"><strong>山羌</strong><span>Deer Donate</span></span>
-          <span class="arrow" aria-hidden="true">↗</span>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
         </a>
       </nav>
-      <a class="home" href="../">← 回到多帕的首頁</a>
+
+      <a class="home" href="../"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg>回到多帕的首頁</a>
     </main>
+
+    <script>
+      (function () {
+        var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var shapes = ['p-heart', 'p-paw', 'p-flake', 'p-star'];
+        var colors = ['#5aaee6', '#ff8fb1', '#7fcfa8', '#ffc65c', '#9cc8ec'];
+        var pick = function (list) { return list[Math.floor(Math.random() * list.length)]; };
+        var icon = function (shape) {
+          return '<svg viewBox="0 0 24 24"><use href="#' + shape + '"></use></svg>';
+        };
+
+        // Background: things drifting up.
+        if (!calm) {
+          var sky = document.querySelector('.sky');
+          var count = window.innerWidth < 600 ? 12 : 20;
+          for (var n = 0; n < count; n++) {
+            var bit = document.createElement('span');
+            var size = 10 + Math.random() * 18;
+            bit.className = 'floaty';
+            bit.innerHTML = icon(pick(shapes));
+            bit.style.cssText =
+              'left:' + (Math.random() * 100) + '%;width:' + size + 'px;height:' + size + 'px;' +
+              'color:' + pick(colors) + ';animation-duration:' + (12 + Math.random() * 14) + 's;' +
+              'animation-delay:' + (-Math.random() * 26) + 's;--sway:' + (Math.random() * 80 - 40) + 'px;' +
+              '--spin:' + (Math.random() * 180 - 90) + 'deg;--alpha:' + (.25 + Math.random() * .3);
+            sky.appendChild(bit);
+          }
+        }
+
+        // A burst of hearts and paws from a point.
+        function burst(x, y, amount, palette) {
+          if (calm || !document.body.animate) return;
+          for (var n = 0; n < amount; n++) {
+            var bit = document.createElement('span');
+            bit.className = 'particle';
+            bit.innerHTML = icon(pick(['p-heart', 'p-paw', 'p-star', 'p-heart']));
+            bit.style.left = x + 'px';
+            bit.style.top = y + 'px';
+            bit.style.color = pick(palette || colors);
+            document.body.appendChild(bit);
+            var angle = Math.random() * Math.PI * 2;
+            var distance = 50 + Math.random() * 70;
+            var scale = .6 + Math.random() * .8;
+            bit.animate([
+              { transform: 'translate(0,0) scale(0) rotate(0deg)', opacity: 1 },
+              { transform: 'translate(' + Math.cos(angle) * distance * .7 + 'px,' + Math.sin(angle) * distance * .7 + 'px) scale(' + scale + ') rotate(' + (Math.random() * 60 - 30) + 'deg)', opacity: 1, offset: .55 },
+              { transform: 'translate(' + Math.cos(angle) * distance + 'px,' + (Math.sin(angle) * distance + 30) + 'px) scale(' + scale * .8 + ') rotate(' + (Math.random() * 120 - 60) + 'deg)', opacity: 0 }
+            ], { duration: 900 + Math.random() * 400, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = function () {
+              this.effect.target.remove();
+            };
+          }
+        }
+
+        // Pet the avatar: wiggle, say something, sprinkle hearts.
+        var avatar = document.querySelector('.avatar-btn');
+        var bubble = document.querySelector('.bubble');
+        var lines = ['汪！', '汪汪汪！', 'ともとも！', '謝謝你～', '(っ´ω`c)', '摸摸頭！', '嗷嗚～'];
+        var last = -1, hide;
+        avatar.addEventListener('click', function () {
+          var next;
+          do { next = Math.floor(Math.random() * lines.length); } while (next === last);
+          last = next;
+          bubble.textContent = lines[next];
+          bubble.classList.add('show');
+          clearTimeout(hide);
+          hide = setTimeout(function () { bubble.classList.remove('show'); }, 1600);
+          avatar.classList.remove('wiggle');
+          void avatar.offsetWidth;
+          avatar.classList.add('wiggle');
+          var box = avatar.getBoundingClientRect();
+          burst(box.left + box.width / 2, box.top + box.height / 2, 12);
+        });
+        // Say hello once after the page settles.
+        setTimeout(function () {
+          bubble.textContent = '汪！';
+          bubble.classList.add('show');
+          hide = setTimeout(function () { bubble.classList.remove('show'); }, 1800);
+        }, 1500);
+
+        // Buttons: glow follows the pointer, a gentle 3D tilt, and a burst on click.
+        var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        document.querySelectorAll('.donate').forEach(function (link) {
+          var accent = getComputedStyle(link).getPropertyValue('--accent').trim();
+          link.addEventListener('pointermove', function (event) {
+            var box = link.getBoundingClientRect();
+            var px = (event.clientX - box.left) / box.width;
+            var py = (event.clientY - box.top) / box.height;
+            link.style.setProperty('--mx', px * 100 + '%');
+            link.style.setProperty('--my', py * 100 + '%');
+            if (fine && !calm) {
+              link.style.setProperty('--ry', (px - .5) * 8 + 'deg');
+              link.style.setProperty('--rx', (.5 - py) * 10 + 'deg');
+            }
+          });
+          link.addEventListener('pointerleave', function () {
+            link.style.setProperty('--rx', '0deg');
+            link.style.setProperty('--ry', '0deg');
+          });
+          link.addEventListener('click', function (event) {
+            var box = link.getBoundingClientRect();
+            var x = event.clientX || box.left + box.width / 2;
+            var y = event.clientY || box.top + box.height / 2;
+            burst(x, y, 14, [accent, '#ff8fb1', '#ffc65c', '#5aaee6']);
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
