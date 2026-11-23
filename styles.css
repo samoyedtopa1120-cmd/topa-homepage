@@ -2411,6 +2411,27 @@ body.modal-open {
 .link-list>.link-playlist { --accent:#e0628f; --tint:#fde5ee; }
 .link-list>.link-secret { --accent:#2f97a3; --tint:#dcf2f4; }
 .link-list>.link-merch { --accent:#d9921a; --tint:#fdf0d6; }
+.link-list>.link-house { --accent:#5f9f2f; --tint:#e8f5dc; }
+.link-pick {
+  display:inline-block;
+  margin-left:8px;
+  padding:1px 9px;
+  border-radius:999px;
+  background:var(--pink);
+  color:white;
+  font-size:11px;
+  font-style:normal;
+  font-weight:900;
+  line-height:1.7;
+  letter-spacing:.06em;
+  vertical-align:2px;
+  animation:pick-pop 2.8s ease-in-out infinite;
+}
+@keyframes pick-pop {
+  0%,80%,100% { scale:1; rotate:0deg; }
+  86% { scale:1.15; rotate:-6deg; }
+  93% { scale:1.05; rotate:4deg; }
+}
 .link-list>.link-card { --accent:#2a9d68; --tint:#dcf5e8; }
 .link-list>.link-wallet { --accent:#e9772f; --tint:#ffe9da; }
 .link-list>.link-deer { --accent:#a8682e; --tint:#f6e8d8; }
