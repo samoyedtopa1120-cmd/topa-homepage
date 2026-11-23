@@ -18,7 +18,7 @@ https://samoyedtopa1120-cmd.github.io/topa-homepage/
 - [Twitch](https://www.twitch.tv/topa_1120)
 - [X / Twitter](https://x.com/topa1120)
 - [Discord](https://discord.com/invite/Zx7xM9aJVY)
-- [薩摩耶之家（推薦）](https://samoyedtopa1120-cmd.github.io/topa-store/)
+- [薩摩耶之家（買周邊）](https://samoyedtopa1120-cmd.github.io/topa-store/)
 - [買動漫周邊](https://www.myacg.com.tw/seller_market.php?seller=552667)
 - [綠界贊助](https://payment.ecpay.com.tw/Broadcaster/Donate/85C7382313C1128C863B7826B020375C)
 - [歐付寶贊助](https://payment.opay.tw/Broadcaster/Donate/44319C02C2A8F1C43497ADE37872A1DE)
