@@ -88,6 +88,7 @@ def render_videos(document: str, songs) -> str:
 
 FANART_GRID = 'id="fanart-collection"'
 FANART_IMAGES = 'assets/fanart/discord'
+FANART_CARD = re.compile(r'[ \t]*<article class="fanart-card">.*?</article>\n?', re.S)
 ZOOM_MARK = (
     '<span class="zoom-mark" aria-hidden="true"><svg viewBox="0 0 24 24">'
     '<path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg></span>'
@@ -120,18 +121,31 @@ def fanart_card(item) -> str:
 
 
 def render_fanart(document: str, items) -> str:
-    """Add Discord posts whose serial has no card yet to the end of the fan-art grid."""
+    """Newest first: every fan-art card, hand-written or from Discord, sorted by 作品序號 from high to low.
+
+    Discord posts whose serial already has a card are skipped, so hand-written text and translations stay.
+    """
     start = document.find(FANART_GRID)
     more = document.find('class="gallery-more"', start)
-    if not items or start < 0 or more < 0:
+    if start < 0 or more < 0:
         return document
+    open_end = document.index('>', start) + 1
     end = document.rfind('</div>', start, more)  # closes the grid
-    existing = {int(n) for n in re.findall(r'data-i18n-n="(\d+)"', document[start:end])}
-    new = sorted((item for item in items if int(item['serial']) not in existing), key=lambda item: int(item['serial']))
-    if not new:
-        return document
-    line_start = document.rfind('\n', start, end) + 1
-    return document[:line_start] + ''.join(fanart_card(item) for item in new) + document[line_start:]
+    inner = document[open_end:end]
+    cards = FANART_CARD.findall(inner)
+    if FANART_CARD.sub('', inner).strip():
+        return document  # something other than cards in the grid: leave it alone
+
+    def serial(card):
+        found = re.search(r'data-i18n-n="(\d+)"', card)
+        return int(found[1]) if found else -1
+
+    existing = {serial(card) for card in cards}
+    cards += [fanart_card(item) for item in items if int(item['serial']) not in existing]
+    cards = [card if card.endswith('\n') else card + '\n' for card in cards]
+    cards.sort(key=serial, reverse=True)
+    closing_indent = inner[len(inner.rstrip(' \t')):]
+    return document[:open_end] + '\n' + ''.join(cards) + closing_indent + document[end:]
 
 
 def sync_stamp(document: str, section_id: str, moment) -> str:

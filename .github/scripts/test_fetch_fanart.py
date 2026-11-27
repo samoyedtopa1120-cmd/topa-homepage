@@ -1,5 +1,6 @@
 """Discord fan-art posts are read with fixed rules (no guessing) and become the same cards as index.html."""
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -78,14 +79,16 @@ class FanartSyncTests(unittest.TestCase):
         ]
         page = render_fanart(GRID, items)
         self.assertEqual(page.count('class="fanart-card"'), 3)                 # 21 is not duplicated
-        self.assertLess(page.index('data-i18n-n="22"'), page.index('data-i18n-n="23"'))
-        self.assertLess(page.index('data-i18n-n="23"'), page.index('<div class="gallery-more"'))
+        order = re.findall(r'data-i18n-n="(\d+)"', page)
+        self.assertEqual(order, ['23', '22', '21'])                             # newest first
+        self.assertLess(page.index('data-i18n-n="21"'), page.index('<div class="gallery-more"'))
         self.assertIn('href="./assets/fanart/discord/b.png"', page)
         self.assertIn('<span data-i18n="fanart.client">委託人：</span>委託者', page)
         self.assertIn('&lt;b&gt;貓&lt;/b&gt;', page)
         self.assertIn('A &amp; B', page)
         self.assertIn('<p class="fanart-note">一行<br />兩行</p>', page)
         self.assertEqual(render_fanart(GRID, []), GRID)
+        self.assertEqual(render_fanart(render_fanart(GRID, items), items), render_fanart(GRID, items))  # stable
 
     def test_known_serials_and_missing_settings(self):
         with tempfile.TemporaryDirectory() as temp:
