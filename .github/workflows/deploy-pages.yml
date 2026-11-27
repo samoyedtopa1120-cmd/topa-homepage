@@ -3,7 +3,7 @@ name: Deploy main and staging to Pages
 on:
   push:
     branches: [main, staging]
-  # Daily at 06:00 Taiwan time: pick up new covers and original songs from YouTube.
+  # Daily at 06:00 Taiwan time: pick up new covers and original songs from YouTube, and new fan art from Discord.
   schedule:
     - cron: '0 22 * * *'
   workflow_dispatch:
@@ -46,7 +46,9 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Test website assembly
-        run: python3 -B .github/scripts/test_build_pages.py
+        run: |
+          python3 -B .github/scripts/test_build_pages.py
+          python3 -B .github/scripts/test_fetch_fanart.py
 
       - name: Fetch covers and original songs from YouTube
         # A YouTube outage or quota problem must not block deployment: the cards in index.html stay.
@@ -55,8 +57,17 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python3 -B .github/scripts/fetch_videos.py videos.json
 
+      - name: Fetch new fan art from the Discord channel
+        # Only posts whose 作品序號 has no card yet are added. A Discord problem must not block deployment.
+        continue-on-error: true
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_FANART_CHANNEL_ID: ${{ vars.DISCORD_FANART_CHANNEL_ID }}
+          DISCORD_FANART_AUTHOR_IDS: ${{ vars.DISCORD_FANART_AUTHOR_IDS }}
+        run: python3 -B .github/scripts/fetch_fanart.py fanart.json fanart-images --known sources/main/index.html
+
       - name: Assemble both websites
-        run: python3 -B .github/scripts/build_pages.py sources/main sources/staging _site --videos videos.json
+        run: python3 -B .github/scripts/build_pages.py sources/main sources/staging _site --videos videos.json --fanart fanart.json --fanart-images fanart-images
 
       - name: Upload combined website
         uses: actions/upload-pages-artifact@v4

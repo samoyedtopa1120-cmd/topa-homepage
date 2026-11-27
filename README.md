@@ -34,6 +34,7 @@ https://samoyedtopa1120-cmd.github.io/topa-homepage/
 - `motion.js` - 純裝飾動態：捲動淡入、首頁飄浮小物、頭像對話泡泡、跑馬燈與點擊愛心（系統開啟「減少動態效果」時自動關閉）
 - `donate/index.html` - 贊助單頁 `/donate/`
 - `.github/scripts/fetch_videos.py` - 每日從 YouTube 同步翻唱與原創曲（見 `docs/deployment.md`）
+- `.github/scripts/fetch_fanart.py` - 每日從 Discord 二創頻道同步新作品（見 `docs/deployment.md`）
 - `docs/content-inventory.md` - 改版前完整文字、連結與素材摘錄
 - `docs/original-content.json` - 改版前結構化內容清單
 - `docs/redesign-notes.md` - 設計、文案改寫及驗證紀錄

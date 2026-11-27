@@ -41,3 +41,36 @@ python3 -B .github/scripts/test_build_pages.py
 API 金鑰存放在倉庫的 Settings → Secrets and variables → Actions，名稱為 `YOUTUBE_API_KEY`。金鑰只需要開放 YouTube Data API v3，每天約使用 1 點配額（上限 10,000）。沒有設定金鑰時會改讀公開 RSS，只能取得最新 15 部影片。若 YouTube 暫時無法連線，部署仍會繼續，頁面沿用 index.html 裡手寫的卡片。
 
 在頁面上點卡片會用 youtube-nocookie.com 的 iframe 在彈出視窗內播放；按住 Ctrl／⌘ 點擊仍會開新分頁到 YouTube。
+
+## Discord 二創頻道每日同步
+
+部署時 `.github/scripts/fetch_fanart.py` 會用 Discord bot 讀取二創頻道的訊息，以固定規則（不經 LLM）解析下面這種格式：
+
+```text
+作品序號：22
+作品名：作品名稱
+作者：作者名稱（ @帳號 ）
+委託人：委託人名稱        ← 可省略
+備註：第一行              ← 可省略，可以換很多行
+第二行
+```
+
+- 冒號用全形「：」或半形「:」都可以；「作品名稱」「繪師」也會被認得。
+- 一定要有作品序號、作品名、作者，並附上一張圖片（png、jpg、gif、webp），否則該訊息會被略過。
+- 網頁上**已經有的作品序號不會被覆蓋**：手寫卡片的潤飾文字與英日文翻譯都會保留。只有新的序號會自動加到「養樂多創作」最後面，文字照 Discord 原文顯示（中文），之後想翻譯，可把卡片抄進 index.html 並在 `i18n.js` 補上翻譯。
+- 同一個序號發了兩次，以較新的那則為準（方便更正）。
+- Discord 的圖片網址大約一天就會失效，所以圖片會在部署時下載，放在網站的 `assets/fanart/discord/`。
+- Discord 暫時無法連線或設定有誤時，部署仍會繼續，頁面只顯示 index.html 裡的卡片。
+
+### 設定
+
+1. 在 [Discord Developer Portal](https://discord.com/developers/applications) 建立應用程式，到 **Bot** 頁面：
+   - 按 **Reset Token** 取得 token（只會顯示一次）。
+   - 打開 **Message Content Intent**（沒有它，bot 讀到的訊息內容會是空的）。
+   - 關閉 **Public Bot**，只有你自己能邀請它。
+2. 到 **OAuth2 → URL Generator**，Scopes 勾 `bot`，Bot Permissions 只勾 **View Channels** 與 **Read Message History**，用產生的網址把 bot 邀進伺服器（需要伺服器管理權限）。私人頻道還要在頻道權限裡加上這個 bot。
+3. 在 Discord 的「設定 → 進階」開啟開發者模式，對二創頻道按右鍵「複製頻道 ID」，對多帕按右鍵「複製使用者 ID」。
+4. 到 GitHub 倉庫的 **Settings → Secrets and variables → Actions**：
+   - **Secrets** 新增 `DISCORD_BOT_TOKEN`（bot token）。
+   - **Variables** 新增 `DISCORD_FANART_CHANNEL_ID`（頻道 ID）與 `DISCORD_FANART_AUTHOR_IDS`（多帕的使用者 ID，只採用多帕發的訊息；有多位可用逗號分隔）。
+5. 到 **Actions → Deploy main and staging to Pages → Run workflow** 手動跑一次，在「Fetch new fan art from the Discord channel」步驟的紀錄確認讀到幾則新作品。

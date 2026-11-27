@@ -86,16 +86,66 @@ def render_videos(document: str, songs) -> str:
     return VIDEO_BLOCK.sub(lambda m: f'{m[1]}\n{cards}\n{m[3]}', document, count=1)
 
 
-def build(main: Path, staging: Path, output: Path, songs=()) -> None:
+FANART_GRID = 'id="fanart-collection"'
+FANART_IMAGES = 'assets/fanart/discord'
+ZOOM_MARK = (
+    '<span class="zoom-mark" aria-hidden="true"><svg viewBox="0 0 24 24">'
+    '<path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg></span>'
+)
+
+
+def fanart_card(item) -> str:
+    """Same markup as the hand-written cards; synced text has no translation keys, so it stays in Chinese."""
+    serial = int(item['serial'])
+    title = html.escape(item['title'])
+    image = f"./{FANART_IMAGES}/{html.escape(item['image'])}"
+    credit = f'<span data-i18n="fanart.artist">作者：</span>{html.escape(item["artist"])}'
+    if item.get('client'):
+        credit += f'<br /><span data-i18n="fanart.client">委託人：</span>{html.escape(item["client"])}'
+    note = ''
+    if item.get('note'):
+        lines = '<br />'.join(html.escape(line) for line in item['note'].splitlines())
+        note = f'\n              <p class="fanart-note">{lines}</p>'
+    return (
+        '          <article class="fanart-card">\n'
+        f'            <a class="image-open" href="{image}" aria-label="放大：{title}">'
+        f'<img src="{image}" alt="{title}" loading="lazy" />{ZOOM_MARK}</a>\n'
+        '            <div>\n'
+        f'              <span data-i18n="fanart.no" data-i18n-n="{serial}">作品序號：{serial}</span>\n'
+        f'              <h3>{title}</h3>\n'
+        f'              <p class="fanart-author">{credit}</p>{note}\n'
+        '            </div>\n'
+        '          </article>\n'
+    )
+
+
+def render_fanart(document: str, items) -> str:
+    """Add Discord posts whose serial has no card yet to the end of the fan-art grid."""
+    start = document.find(FANART_GRID)
+    more = document.find('class="gallery-more"', start)
+    if not items or start < 0 or more < 0:
+        return document
+    end = document.rfind('</div>', start, more)  # closes the grid
+    existing = {int(n) for n in re.findall(r'data-i18n-n="(\d+)"', document[start:end])}
+    new = sorted((item for item in items if int(item['serial']) not in existing), key=lambda item: int(item['serial']))
+    if not new:
+        return document
+    line_start = document.rfind('\n', start, end) + 1
+    return document[:line_start] + ''.join(fanart_card(item) for item in new) + document[line_start:]
+
+
+def build(main: Path, staging: Path, output: Path, songs=(), fanart=(), fanart_images: Path = None) -> None:
     for source in (main, staging):
         for required in ('index.html', 'styles.css', 'assets'):
             if not (source / required).exists():
                 raise ValueError(f'Missing required website file: {source / required}')
 
-    main_html = render_videos(version_assets((main / 'index.html').read_text(encoding='utf-8'), main), songs)
-    preview_html = render_videos(
+    main_html = render_fanart(render_videos(
+        version_assets((main / 'index.html').read_text(encoding='utf-8'), main), songs,
+    ), fanart)
+    preview_html = render_fanart(render_videos(
         version_assets((staging / 'index.html').read_text(encoding='utf-8'), staging), songs,
-    )
+    ), fanart)
     if not re.search(r'</head\s*>', preview_html, re.I) or not re.search(r'<body\b[^>]*>', preview_html, re.I):
         raise ValueError('staging/index.html must contain head and body elements')
     preview_html = re.sub(
@@ -128,6 +178,9 @@ def build(main: Path, staging: Path, output: Path, songs=()) -> None:
         for page in PAGES:
             if (source / page / 'index.html').is_file():
                 shutil.copytree(source / page, destination / page)
+        # Images downloaded from the Discord fan-art channel.
+        if fanart and fanart_images and fanart_images.is_dir():
+            shutil.copytree(fanart_images, destination / FANART_IMAGES, dirs_exist_ok=True)
     (output / 'index.html').write_text(main_html, encoding='utf-8')
     (output / 'staging/index.html').write_text(preview_html, encoding='utf-8')
     (output / '.nojekyll').touch()
@@ -139,10 +192,16 @@ if __name__ == '__main__':
     parser.add_argument('staging', type=Path)
     parser.add_argument('output', type=Path)
     parser.add_argument('--videos', type=Path, help='videos.json from fetch_videos.py (optional)')
+    parser.add_argument('--fanart', type=Path, help='fanart.json from fetch_fanart.py (optional)')
+    parser.add_argument('--fanart-images', type=Path, help='folder of images downloaded by fetch_fanart.py')
     args = parser.parse_args()
     songs = []
     if args.videos and args.videos.exists():
         songs = json.loads(args.videos.read_text(encoding='utf-8'))
     else:
         print('No synced video list: keeping the cards written in index.html.')
-    build(args.main, args.staging, args.output, songs)
+    fanart = []
+    if args.fanart and args.fanart.exists():
+        fanart = json.loads(args.fanart.read_text(encoding='utf-8'))
+        print(f'{len(fanart)} fan-art post(s) from Discord.')
+    build(args.main, args.staging, args.output, songs, fanart, args.fanart_images)
