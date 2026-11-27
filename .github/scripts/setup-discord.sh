@@ -23,7 +23,7 @@ if [[ "$me" != *'"bot": true'* && "$me" != *'"bot":true'* ]]; then
   echo "Discord 不認得這個 token（可能貼錯或已被重設），什麼都沒改。"
   exit 1
 fi
-name="$(printf '%s' "$me" | sed -n 's/.*"username": *"\([^"]*\)".*/\1/p')"
+name="$(printf '%s' "$me" | python3 -c 'import json, sys; print(json.load(sys.stdin).get("username", "?"))' 2>/dev/null || true)"
 echo "✓ Token 有效：bot「${name:-?}」"
 
 printf '%s' "$token" | gh secret set DISCORD_BOT_TOKEN --repo "$REPO"
