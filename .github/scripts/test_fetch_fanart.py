@@ -8,7 +8,8 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
-from build_pages import render_fanart  # noqa: E402
+from datetime import datetime, timezone  # noqa: E402
+from build_pages import render_fanart, sync_stamp  # noqa: E402
 from fetch_fanart import collect, known_serials, parse_post  # noqa: E402
 
 POST = """作品序號：21
@@ -98,6 +99,16 @@ class FanartSyncTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertFalse((Path(temp) / 'f.json').exists())
 
+
+    def test_sync_stamp(self):
+        page = '<section id="media"><div></div></section><section id="fanart"><p>x</p></section>'
+        moment = datetime(2026, 11, 27, 22, 0, tzinfo=timezone.utc)  # 06:00 the next day in Taiwan
+        stamped = sync_stamp(page, 'fanart', moment)
+        self.assertIn('<p>x</p><p class="sync-stamp"><span data-i18n="sync.label">最後同步</span> '
+                      '<time datetime="2026-11-28T06:00+08:00">2026/11/28 06:00</time> (UTC+8)</p></section>', stamped)
+        self.assertNotIn('sync-stamp', stamped[:stamped.index('<section id="fanart"')])
+        self.assertEqual(sync_stamp(page, 'fanart', None), page)
+        self.assertEqual(sync_stamp(page, 'missing', moment), page)
 
 if __name__ == '__main__':
     unittest.main()

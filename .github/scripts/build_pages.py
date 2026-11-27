@@ -134,18 +134,39 @@ def render_fanart(document: str, items) -> str:
     return document[:line_start] + ''.join(fanart_card(item) for item in new) + document[line_start:]
 
 
-def build(main: Path, staging: Path, output: Path, songs=(), fanart=(), fanart_images: Path = None) -> None:
+def sync_stamp(document: str, section_id: str, moment) -> str:
+    """Note at the bottom right of an auto-updated section saying when the data was last fetched (Taiwan time)."""
+    start = document.find(f'<section id="{section_id}"')
+    end = document.find('</section>', start)
+    if moment is None or start < 0 or end < 0:
+        return document
+    local = moment.astimezone(TAIWAN)
+    stamp = (
+        '<p class="sync-stamp"><span data-i18n="sync.label">最後同步</span> '
+        f'<time datetime="{local.isoformat(timespec="minutes")}">{local:%Y/%m/%d %H:%M}</time> (UTC+8)</p>'
+    )
+    return document[:end] + stamp + document[end:]
+
+
+def build(main: Path, staging: Path, output: Path, songs=(), fanart=(), fanart_images: Path = None,
+          synced=None) -> None:
+    """synced: {"media": datetime, "fanart": datetime} for the sections whose data was fetched this time."""
+    synced = synced or {}
     for source in (main, staging):
         for required in ('index.html', 'styles.css', 'assets'):
             if not (source / required).exists():
                 raise ValueError(f'Missing required website file: {source / required}')
 
-    main_html = render_fanart(render_videos(
-        version_assets((main / 'index.html').read_text(encoding='utf-8'), main), songs,
-    ), fanart)
-    preview_html = render_fanart(render_videos(
-        version_assets((staging / 'index.html').read_text(encoding='utf-8'), staging), songs,
-    ), fanart)
+    def assemble(source: Path) -> str:
+        document = render_fanart(render_videos(
+            version_assets((source / 'index.html').read_text(encoding='utf-8'), source), songs,
+        ), fanart)
+        for section_id, moment in synced.items():
+            document = sync_stamp(document, section_id, moment)
+        return document
+
+    main_html = assemble(main)
+    preview_html = assemble(staging)
     if not re.search(r'</head\s*>', preview_html, re.I) or not re.search(r'<body\b[^>]*>', preview_html, re.I):
         raise ValueError('staging/index.html must contain head and body elements')
     preview_html = re.sub(
@@ -195,13 +216,17 @@ if __name__ == '__main__':
     parser.add_argument('--fanart', type=Path, help='fanart.json from fetch_fanart.py (optional)')
     parser.add_argument('--fanart-images', type=Path, help='folder of images downloaded by fetch_fanart.py')
     args = parser.parse_args()
-    songs = []
+    # A data file exists only when its fetch succeeded; its modification time is the sync time.
+    fetched_at = lambda path: datetime.fromtimestamp(path.stat().st_mtime, TAIWAN)
+    songs, fanart, synced = [], [], {}
     if args.videos and args.videos.exists():
         songs = json.loads(args.videos.read_text(encoding='utf-8'))
+        if songs:
+            synced['media'] = fetched_at(args.videos)
     else:
         print('No synced video list: keeping the cards written in index.html.')
-    fanart = []
     if args.fanart and args.fanart.exists():
         fanart = json.loads(args.fanart.read_text(encoding='utf-8'))
+        synced['fanart'] = fetched_at(args.fanart)
         print(f'{len(fanart)} fan-art post(s) from Discord.')
-    build(args.main, args.staging, args.output, songs, fanart, args.fanart_images)
+    build(args.main, args.staging, args.output, songs, fanart, args.fanart_images, synced)

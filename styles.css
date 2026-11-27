@@ -2453,6 +2453,30 @@ body.modal-open {
   translate:0 -3px;
 }
 
+/* "Last synced" note under the sections the daily GitHub Action updates */
+.sync-stamp {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  margin-top:26px;
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.04em;
+}
+.sync-stamp:before {
+  content:'';
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#7fcfa8;
+  animation:pulse-ring 2.4s ease-out infinite;
+}
+.sync-stamp time {
+  font-weight:800;
+  color:var(--deep);
+}
+
 /* Click bursts */
 .burst {
   position:fixed;
