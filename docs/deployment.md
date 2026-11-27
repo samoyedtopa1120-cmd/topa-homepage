@@ -70,7 +70,7 @@ API 金鑰存放在倉庫的 Settings → Secrets and variables → Actions，�
    - 關閉 **Public Bot**，只有你自己能邀請它。
 2. 到 **OAuth2 → URL Generator**，Scopes 勾 `bot`，Bot Permissions 只勾 **View Channels** 與 **Read Message History**，用產生的網址把 bot 邀進伺服器（需要伺服器管理權限）。私人頻道還要在頻道權限裡加上這個 bot。
 3. 在 Discord 的「設定 → 進階」開啟開發者模式，對二創頻道按右鍵「複製頻道 ID」，對多帕按右鍵「複製使用者 ID」。
-4. 到 GitHub 倉庫的 **Settings → Secrets and variables → Actions**：
+4. 在終端機執行 `.github/scripts/setup-discord.sh`（需要已登入的 GitHub CLI），依提示貼上 token 與 ID，程式會先向 Discord 確認 token 有效再存進 GitHub；token 輸入時不顯示、不留在歷史紀錄。也可以手動到 GitHub 倉庫的 **Settings → Secrets and variables → Actions**：
    - **Secrets** 新增 `DISCORD_BOT_TOKEN`（bot token）。
    - **Variables** 新增 `DISCORD_FANART_CHANNEL_ID`（頻道 ID）與 `DISCORD_FANART_AUTHOR_IDS`（多帕的使用者 ID，只採用多帕發的訊息；有多位可用逗號分隔）。
 5. 到 **Actions → Deploy main and staging to Pages → Run workflow** 手動跑一次，在「Fetch new fan art from the Discord channel」步驟的紀錄確認讀到幾則新作品。
